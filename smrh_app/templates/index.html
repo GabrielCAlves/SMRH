@@ -9,10 +9,15 @@
 
 <body>
 
-  <header class="header">
-    <p><img src="/static/images/source/smrh.png" style="height:100px"></p>
+  <header>
+    <a href = "{{ url_for('index') }}">
+      <img src="/static/images/source/smrh.png" style="height:50px">
+    </a>
+    <a href="{{ url_for('index') }}">Início</a>
+    <a href="{{ url_for('graph1') }}">Gráfico</a>
   </header>
-  <br><br>
-  <embed type="image/svg+xml" src={{graph_data|safe}} style="max-width:1000px">
+
+  <hr>
+
 </body>
 </html>
