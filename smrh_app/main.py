@@ -5,7 +5,7 @@ smrh = Flask(__name__)
 
 @smrh.route('/')
 def index():
-    grap = pygal.Bar()
+    graph = pygal.Bar()
     graph.title = 'Consumo de água'
     graph.x_labels = ['10:00', '10:05', '10:10']
     graph.add('Consumo em m³', [100, 150, 170])
