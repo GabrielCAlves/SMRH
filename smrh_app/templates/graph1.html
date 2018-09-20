@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta http-equiv="refresh" content="60" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/style.css">
+  <title>SMRH - Sistema de Monitoramento de Recursos Hídricos</title>
+</head>
+
+<body>
+
+  <header>
+    <a href = "{{ url_for('index') }}">
+      <img src="/static/images/source/smrh.png" style="height:50px">
+    </a>
+    <a href="{{ url_for('index') }}">Início</a>
+    <a href="{{ url_for('graph1') }}">Gráfico</a>
+  </header>
+
+  <hr>
+
+  <p style="text-align:center">
+    <embed type="image/svg+xml" src={{graph_data|safe}} style="max-height:500px" />
+  </p>
+
+</body>
+</html>
