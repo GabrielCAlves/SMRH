@@ -16,9 +16,3 @@ filename = PATH + '/smrh_app/static/data/coord.p'
 with open(filename, 'wb') as file:
     pickle.dump(coord, file)
     file.close()
-
-with open(filename, 'rb') as file:
-    test = pickle.load(file)
-    file.close()
-
-print(test)
