@@ -10,8 +10,8 @@ def index():
 
 @smrh.route('/graph')
 def graph1():
-    graph = pygal.Line(x_title='Horário Registrado (h)', y_title='Consumo (m³)', show_legend=False, style=BlueStyle)
-    graph.title = 'SMRH - Consumo de Água'
+    graph = pygal.Line(x_title='Horario Registrado (h)', y_title='Consumo (m3)', show_legend=False, style=BlueStyle)
+    graph.title = 'SMRH - Consumo de agua'
     graph.x_labels = ['10:00', '10:05', '10:10']
     graph.add('Consumo', [100, 150, 170])
     graph_data = graph.render_data_uri()
