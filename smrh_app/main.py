@@ -2,6 +2,7 @@ from flask import Flask, render_template, url_for
 from pygal.style import BlueStyle
 import pickle
 import pygal
+import os
 
 smrh = Flask(__name__)
 
