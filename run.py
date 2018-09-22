@@ -52,7 +52,7 @@ while True:
             last_digit = pickle.load(file)
 
         # Update values
-        reading = update_values(digit, last_digit)
+        reading = update_values(PATH, digit, last_digit)
 
         # Append lists
         times.append(time)
@@ -61,11 +61,14 @@ while True:
         # Write in files
         with open(filename1, 'wb') as file:
             pickle.dump(times, file)
+            file.close()
 
         with open(filename2, 'wb') as file:
             pickle.dump(readings, file)
+            file.close()
 
         with open(filename3, 'wb') as file:
             pickle.dump(digit, file)
+            file.close()
 
         break;

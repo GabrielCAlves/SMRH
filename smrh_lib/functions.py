@@ -61,7 +61,7 @@ def run_tesseract(PATH, picture):
     return pytesseract.image_to_string(final_image, config='-psm 10 nobatch digits')
 
 # Update values
-def update_values(digit, last_digit):
+def update_values(PATH, digit, last_digit):
     # Get multiplier
     filename = PATH + '/smarh_app/static/data/multiplier.p'
 
