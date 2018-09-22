@@ -35,7 +35,7 @@ def run_tesseract(PATH, picture):
 # Update values
 def update_values(PATH, digit, last_digit, last_reading):
     # Get multiplier
-    filename = PATH + '/smarh_app/static/data/multiplier.p'
+    filename = PATH + '/smrh_app/static/data/multiplier.p'
 
     with open(filename, 'rb') as file:
         multiplier = pickle.load(file)
