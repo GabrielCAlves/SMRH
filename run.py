@@ -14,7 +14,6 @@ try:
     date = datetime.now().strftime('%y-%b-%d_%H:%M')
 
     # picture saving PATH
-    global picture
     picture = PATH + '/smrh_app/static/images/' + date + '.png'
 
     # Take a picture
@@ -27,7 +26,7 @@ try:
     digit = int(run_tesseract(PATH, picture))
 
 except:
-    if os.path.exists(picture)
+    if os.path.exists(picture):
         os.remove(picture)
 
 else:
