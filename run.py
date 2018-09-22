@@ -11,9 +11,9 @@ while True:
     try:
         # Get current time and date
         global time
-        time = (time.strftime('%H:%M'))
+        time = time.strftime('%H:%M')
         global date
-        date = (time.strftime('%y-%b-%d_%H:%M'))
+        date = time.strftime('%H:%M')
 
         # picture saving PATH
         global picture
