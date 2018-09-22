@@ -13,9 +13,6 @@ def get_coordinates(PATH):
     filename = PATH + '/smrh_app/static/data/coordinates.p'
 
     with open(filename, 'wb') as file:
-        pickle.close()
-
-    with open(filename, 'wb') as file:
         pickle.dump(coord, file)
         file.close()
 
