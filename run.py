@@ -41,7 +41,7 @@ try:
     final_image = cropped.convert('L').point(fn, mode='1')
 
     # OCR
-    return pytesseract.image_to_string(final_image, config='-psm 10 nobatch digits')
+    digit = pytesseract.image_to_string(final_image, config='-psm 10 nobatch digits')
 
 except:
     if os.path.exists(picture):
