@@ -7,7 +7,6 @@ import pickle
 def get_picture(picture):
     # take picture and store
     camera = PiCamera()
-    camera.rotation = 180
     camera.capture(picture)
     camera.close()
 
@@ -29,8 +28,12 @@ def run_tesseract(PATH, picture):
     fn = lambda x : 255 if x > thresh else 0
     final_image = cropped.convert('L').point(fn, mode='1')
 
+    # Debug - Save cropped and thresholded pictures
+    cropped.save(PATH + '/smrh_app/static/images/image_cropped.png')
+    final_image.save(PATH + '/smrh_app/static/images/image_threshold.png')
+
     # OCR
-    return pytesseract.image_to_string(final_image, config='-psm 10 nobatch digits')
+    return int(pytesseract.image_to_string(final_image, config='-psm 10 nobatch digits'))
 
 # Update values
 def update_values(PATH, digit, last_digit, last_reading):

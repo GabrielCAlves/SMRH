@@ -17,33 +17,10 @@ date = datetime.now().strftime('%y-%b-%d_%H:%M')
 picture = PATH + '/smrh_app/static/images/' + date + '.png'
 
 # Take a picture
-camera = PiCamera()
-camera.capture(picture)
-camera.close()
+get_picture(picture)
 
 # Run tesseract
-# Open image
-img = Image.open(picture)
-
-# Open crop coordinates
-filename = PATH + '/smrh_app/static/data/coordinates.p'
-with open(filename, 'rb') as file:
-    coord = pickle.load(file)
-
-# Crop image
-cropped = img.crop(coord)
-
-# Apply threshold
-thresh = 100
-fn = lambda x : 255 if x > thresh else 0
-final_image = cropped.convert('L').point(fn, mode='1')
-
-cropped.save(PATH + '/smrh_app/static/images/image_cropped.png')
-final_image.save(PATH + '/smrh_app/static/images/image_threshold.png')
-
-# OCR
-digit = int(pytesseract.image_to_string(final_image, config='-psm 10 nobatch digits'))
-
+digit = run_tesseract(PATH, picture)
 
 #if os.path.exists(picture):
 #   os.remove(picture)
