@@ -15,3 +15,15 @@ def get_coordinates(PATH):
     with open(filename, 'wb') as file:
         pickle.dump(coord, file)
         file.close()
+
+# Determine multiplier
+def get_multiplier(PATH):
+    # Enter multiplier
+    mult = int(input("Multiplicador de leitura: "))
+
+    # Save and pickle
+    filename = PATH + '/smrh_app/static/data/multiplier.p'
+
+    with open(filename, 'wb') as file:
+        pickle.dump(multiplier, file)
+        file.close()

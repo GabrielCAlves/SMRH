@@ -31,3 +31,18 @@ def run_tesseract(PATH, picture):
 
     # OCR
     return pytesseract.image_to_string(final_image, config='-psm 10 nobatch digits')
+
+# Update values
+def update_values(digit, last_digit):
+    # Get multiplier
+    filename = PATH + '/smarh_app/static/data/multiplier.p'
+
+    with open(filename, 'rb') as file:
+        multiplier = pickle.load(file)
+
+    # Test conditions
+    if last_digit == 9:
+        if digit == 0:
+            return multiplier
+        else:
+            return (last_digit - digit) * multiplier
