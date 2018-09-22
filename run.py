@@ -42,9 +42,9 @@ try:
     # OCR
     digit = int(pytesseract.image_to_string(final_image, config='-psm 10 nobatch digits'))
 
-except:
-    if os.path.exists(picture):
-        os.remove(picture)
+#except:
+#    if os.path.exists(picture):
+#        os.remove(picture)
 
 else:
     filename1 = PATH + '/smrh_app/static/data/times.p'
