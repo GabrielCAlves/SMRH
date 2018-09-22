@@ -7,5 +7,6 @@ choice = int(input("1 - Coordenadas\n 2 - Multiplicador "))
 
 if choice == 1:
     get_coordinates(PATH)
+
 elif choice == 2:
     get_multiplier(PATH)
