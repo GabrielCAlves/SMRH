@@ -10,20 +10,16 @@ PATH = os.path.dirname(os.path.realpath(__file__))
 while True:
     try:
         # Get current time and date
-        global time
         time = datetime.now().strftime('%H:%M')
-        global date
         date = datetime.now().strftime('%y-%b-%d_%H:%M')
 
         # picture saving PATH
-        global picture
         picture = PATH + '/smrh_app/static/images/' + date + '.png'
 
         # Take a picture
         get_picture(picture)
 
         # Run tesseract
-        global digit
         digit = int(run_tesseract(PATH, picture))
 
     except:
