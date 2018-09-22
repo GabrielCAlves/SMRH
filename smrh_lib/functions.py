@@ -3,34 +3,6 @@ from PIL import Image
 import pytesseract
 import pickle
 
-# Get coordinates for image cropping
-def get_coordinates(PATH):
-    # Enter coordinates
-    x0 = int(input("x0: "))
-    y0 = int(input("y0: "))
-    x1 = int(input("x1: "))
-    y1 = int(input("y1: "))
-
-    # Save and pickle
-    coord = (x0, y0, x1, y1)
-    filename = PATH + '/smrh_app/static/data/coordinates.p'
-
-    with open(filename, 'wb') as file:
-        pickle.dump(coord, file)
-        file.close()
-
-# Determine multiplier
-def get_multiplier(PATH):
-    # Enter multiplier
-    mult = int(input("Multiplicador de leitura: "))
-
-    # Save and pickle
-    filename = PATH + '/smrh_app/static/data/multiplier.p'
-
-    with open(filename, 'wb') as file:
-        pickle.dump(multiplier, file)
-        file.close()
-
 # Take a picture and save it
 def get_picture(picture):
     # take picture and store
@@ -61,7 +33,7 @@ def run_tesseract(PATH, picture):
     return pytesseract.image_to_string(final_image, config='-psm 10 nobatch digits')
 
 # Update values
-def update_values(PATH, digit, last_digit):
+def update_values(PATH, digit, last_digit, last_reading):
     # Get multiplier
     filename = PATH + '/smarh_app/static/data/multiplier.p'
 
@@ -71,8 +43,8 @@ def update_values(PATH, digit, last_digit):
     # Test conditions
     if last_digit == 9:
         if digit == 0:
-            return multiplier
+            return last_reading + multiplier
         else:
-            return (last_digit - digit) * multiplier
+            return last_reading + (last_digit - digit) * multiplier
     else:
-        return (digit - last_digit) * multiplier
+        return last_reading + (digit - last_digit) * multiplier

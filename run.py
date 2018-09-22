@@ -32,6 +32,7 @@ while True:
         filename2 = PATH + '/smrh_app/static/data/readings.p'
         filename3 = PATH + '/smrh_app/static/data/last_digit.p'
 
+'''
         # If files do not exist, create them
         if !os.path.exists(filename1):
             with open(filename1, 'wb') as file:
@@ -40,6 +41,7 @@ while True:
         if !os.path.exists(filename2):
             with open(filename2, 'wb') as file:
                 file.close()
+'''
 
         # Open files
         with open(filename1, 'rb') as file:
@@ -52,7 +54,7 @@ while True:
             last_digit = pickle.load(file)
 
         # Update values
-        reading = update_values(PATH, digit, last_digit)
+        reading = update_values(PATH, digit, last_digit, readings[-1])
 
         # Append lists
         times.append(time)
