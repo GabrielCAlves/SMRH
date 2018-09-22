@@ -40,7 +40,7 @@ try:
     final_image = cropped.convert('L').point(fn, mode='1')
 
     # OCR
-    digit = pytesseract.image_to_string(final_image, config='-psm 10 nobatch digits')
+    digit = int(pytesseract.image_to_string(final_image, config='-psm 10 nobatch digits'))
 
 except:
     if os.path.exists(picture):
@@ -61,8 +61,10 @@ else:
     with open(filename3, 'rb') as file:
         last_digit = int(pickle.load(file))
 
+    last_reading = int(readings[-1])
+
     # Update values
-    reading = update_values(PATH, digit, last_digit, readings[-1])
+    reading = update_values(PATH, digit, last_digit, last_reading)
 
     # Append lists
     times.append(time)
