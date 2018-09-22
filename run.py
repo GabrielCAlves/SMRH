@@ -42,7 +42,7 @@ try:
     # OCR
     digit = int(pytesseract.image_to_string(final_image, config='-psm 10 nobatch digits'))
 
-#except:
+except:
 #    if os.path.exists(picture):
 #        os.remove(picture)
 
