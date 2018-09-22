@@ -19,7 +19,7 @@ def get_coordinates(PATH):
 # Determine multiplier
 def get_multiplier(PATH):
     # Enter multiplier
-    mult = int(input("Multiplicador de leitura: "))
+    multiplier = int(input("Multiplicador de leitura: "))
 
     # Save and pickle
     filename = PATH + '/smrh_app/static/data/multiplier.p'
