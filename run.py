@@ -31,7 +31,7 @@ with open(filename, 'rb') as file:
     coord = pickle.load(file)
 
 # Crop image
-cropped = img.crop(coord)
+cropped = img.crop((2156, 737, 2365, 1067))
 
 # Apply threshold
 thresh = 100
