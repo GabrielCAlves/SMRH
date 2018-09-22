@@ -2,6 +2,8 @@ from smrh_lib.functions import get_picture, run_tesseract, update_values
 import pickle
 from datetime import datetime
 import os
+from picamera import PiCamera
+from PIL import Image
 
 # Get absolute path to project folder
 PATH = os.path.dirname(os.path.realpath(__file__))
@@ -15,7 +17,10 @@ try:
     picture = PATH + '/smrh_app/static/images/' + date + '.png'
 
     # Take a picture
-    get_picture(picture)
+    camera = PiCamera()
+    camera.rotation = 180
+    camera.capture(picture)
+    camera.close()
 
     # Run tesseract
     digit = int(run_tesseract(PATH, picture))
