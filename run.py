@@ -37,6 +37,7 @@ cropped = img.crop(coord)
 thresh = 200
 fn = lambda x : 255 if x > thresh else 0
 final_image = cropped.convert('L').point(fn, mode='1')
+final_image.save(PATH + '/smrh_app/static/images/image_threshold.png')
 
 # OCR
 digit = int(pytesseract.image_to_string(final_image, config='-psm 10 nobatch digits'))
