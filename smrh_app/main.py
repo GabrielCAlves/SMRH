@@ -9,8 +9,8 @@ smrh = Flask(__name__)
 # Get absolute path to project folder
 PATH = os.path.dirname(os.path.realpath(__file__))
 
-filename1 = PATH + '/smrh_app/static/data/times.p'
-filename2 = PATH + '/smrh_app/static/data/readings.p'
+filename1 = PATH + '/static/data/times.p'
+filename2 = PATH + '/static/data/readings.p'
 
 with open(filename1, 'rb') as file:
     times = pickle.load(file)
