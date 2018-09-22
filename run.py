@@ -9,76 +9,74 @@ import pytesseract
 # Get absolute path to project folder
 PATH = os.path.dirname(os.path.realpath(__file__))
 
-try:
-    # Get current time and date
-    time = datetime.now().strftime('%H:%M')
-    date = datetime.now().strftime('%y-%b-%d_%H:%M')
+# Get current time and date
+time = datetime.now().strftime('%H:%M')
+date = datetime.now().strftime('%y-%b-%d_%H:%M')
 
-    # picture saving PATH
-    picture = PATH + '/smrh_app/static/images/' + date + '.png'
+# picture saving PATH
+picture = PATH + '/smrh_app/static/images/' + date + '.png'
 
-    # Take a picture
-    camera = PiCamera()
-    camera.capture(picture)
-    camera.close()
+# Take a picture
+camera = PiCamera()
+camera.capture(picture)
+camera.close()
 
-    # Run tesseract
-    # Open image
-    img = Image.open(picture)
+# Run tesseract
+# Open image
+img = Image.open(picture)
 
-    # Open crop coordinates
-    filename = PATH + '/smrh_app/static/data/coordinates.p'
-    with open(filename, 'rb') as file:
-        coord = pickle.load(file)
+# Open crop coordinates
+filename = PATH + '/smrh_app/static/data/coordinates.p'
+with open(filename, 'rb') as file:
+    coord = pickle.load(file)
 
-    # Crop image
-    cropped = img.crop(coord)
+# Crop image
+cropped = img.crop(coord)
 
-    # Apply threshold
-    thresh = 100
-    fn = lambda x : 255 if x > thresh else 0
-    final_image = cropped.convert('L').point(fn, mode='1')
+# Apply threshold
+thresh = 100
+fn = lambda x : 255 if x > thresh else 0
+final_image = cropped.convert('L').point(fn, mode='1')
 
-    # OCR
-    digit = int(pytesseract.image_to_string(final_image, config='-psm 10 nobatch digits'))
+# OCR
+digit = int(pytesseract.image_to_string(final_image, config='-psm 10 nobatch digits'))
 
-except:
-#    if os.path.exists(picture):
-#        os.remove(picture)
 
-else:
-    filename1 = PATH + '/smrh_app/static/data/times.p'
-    filename2 = PATH + '/smrh_app/static/data/readings.p'
-    filename3 = PATH + '/smrh_app/static/data/last_digit.p'
+#if os.path.exists(picture):
+#   os.remove(picture)
 
-    # Open files
-    with open(filename1, 'rb') as file:
-        times = pickle.load(file)
+filename1 = PATH + '/smrh_app/static/data/times.p'
+filename2 = PATH + '/smrh_app/static/data/readings.p'
+filename3 = PATH + '/smrh_app/static/data/last_digit.p'
 
-    with open(filename2, 'rb') as file:
-        readings = pickle.load(file)
+# Open files
+with open(filename1, 'rb') as file:
+    times = pickle.load(file)
 
-    with open(filename3, 'rb') as file:
-        last_digit = int(pickle.load(file))
+with open(filename2, 'rb') as file:
+    readings = pickle.load(file)
 
-    last_reading = int(readings[-1])
+with open(filename3, 'rb') as file:
+    last_digit = int(pickle.load(file))
 
-    # Update values
-    reading = update_values(PATH, digit, last_digit, last_reading)
+last_reading = int(readings[-1])
 
-    # Append lists
-    times.append(time)
-    readings.append(reading)
+# Update values
+reading = update_values(PATH, digit, last_digit, last_reading)
 
-    # Write in files
-    with open(filename1, 'wb') as file:
-        pickle.dump(times, file)
-        file.close()
+# Append lists
+times.append(time)
+readings.append(reading)
 
-    with open(filename2, 'wb') as file:
-        pickle.dump(readings, file)
-        file.close()
+# Write in files
+with open(filename1, 'wb') as file:
+    pickle.dump(times, file)
+    file.close()
 
-    with open(filename3, 'wb') as file:
-        pickle.dump(digit, file)
-        file.close()
+with open(filename2, 'wb') as file:
+    pickle.dump(readings, file)
+    file.close()
+
+with open(filename3, 'wb') as file:
+    pickle.dump(digit, file)
+    file.close()
