@@ -1,6 +1,6 @@
 from smrh_lib.functions import get_picture, run_tesseract, update_values
 import pickle
-import time
+from datetime import datetime
 import os
 
 # Get absolute path to project folder
@@ -11,9 +11,9 @@ while True:
     try:
         # Get current time and date
         global time
-        time = time.strftime('%H:%M')
+        time = datetime.now().strftime('%H:%M')
         global date
-        date = time.strftime('%H:%M')
+        date = datetime.now().strftime('%y-%b-%d_%H:%M')
 
         # picture saving PATH
         global picture
