@@ -1,4 +1,4 @@
-from flask import Flask, render_templat
+from flask import Flask, render_templat, url_for
 from pygal.style import BlueStyle
 import pickle
 import pygal
