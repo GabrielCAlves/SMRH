@@ -46,3 +46,5 @@ def update_values(digit, last_digit):
             return multiplier
         else:
             return (last_digit - digit) * multiplier
+    else:
+        return (digit - last_digit) * multiplier

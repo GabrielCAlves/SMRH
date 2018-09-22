@@ -65,4 +65,7 @@ while True:
         with open(filename2, 'wb') as file:
             pickle.dump(readings, file)
 
+        with open(filename3, 'wb') as file:
+            pickle.dump(digit, file)
+
         break;
