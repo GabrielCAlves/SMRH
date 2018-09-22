@@ -19,7 +19,6 @@ try:
 
     # Take a picture
     camera = PiCamera()
-    camera.rotation = 180
     camera.capture(picture)
     camera.close()
 
