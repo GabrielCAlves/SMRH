@@ -24,7 +24,7 @@ def graph1():
     with open(filename2, 'rb') as file:
         readings = pickle.load(file)
 
-    graph = pygal.Line(x_title='Horário Registrado (h)', y_title='Consumo (m³)', show_legend=False, style=BlueStyle)
+    graph = pygal.Bar(x_title='Horário Registrado (h)', y_title='Consumo (m³)', show_legend=False, style=BlueStyle)
     graph.title = 'SMRH - Consumo de Água'
     graph.x_labels = times
     # graph.x_labels = ['10:00', '10:05', '10:10']
