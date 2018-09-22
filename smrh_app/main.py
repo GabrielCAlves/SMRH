@@ -12,18 +12,18 @@ PATH = os.path.dirname(os.path.realpath(__file__))
 filename1 = PATH + '/static/data/times.p'
 filename2 = PATH + '/static/data/readings.p'
 
-with open(filename1, 'rb') as file:
-    times = pickle.load(file)
-
-with open(filename2, 'rb') as file:
-    readings = pickle.load(file)
-
 @smrh.route('/')
 def index():
     return render_template('index.html',)
 
 @smrh.route('/graph')
 def graph1():
+    with open(filename1, 'rb') as file:
+        times = pickle.load(file)
+
+    with open(filename2, 'rb') as file:
+        readings = pickle.load(file)
+
     graph = pygal.Line(x_title='Horário Registrado (h)', y_title='Consumo (m³)', show_legend=False, style=BlueStyle)
     graph.title = 'SMRH - Consumo de Água'
     graph.x_labels = times
