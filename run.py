@@ -27,7 +27,8 @@ while True:
         digit = int(run_tesseract(PATH, picture))
 
     except:
-        os.remove(picture)
+        if os.path.exists(picture):
+            os.remove(picture)
 
     else:
         filename1 = PATH + '/smrh_app/static/data/times.p'
