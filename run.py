@@ -10,8 +10,8 @@ PATH = os.path.dirname(os.path.realpath(__file__))
 while True:
     try:
         # Get current time and date
-        global time = time.strftime('%H:%M')
-        global date = time.strftime('%y-%b-%d_%H:%M')
+        global time = (time.strftime('%H:%M'))
+        global date = (time.strftime('%y-%b-%d_%H:%M'))
 
         # picture saving PATH
         global picture = PATH + '/smrh_app/static/images/' + date + '.png'
