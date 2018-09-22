@@ -59,7 +59,7 @@ else:
         readings = pickle.load(file)
 
     with open(filename3, 'rb') as file:
-        last_digit = pickle.load(file)
+        last_digit = int(pickle.load(file))
 
     # Update values
     reading = update_values(PATH, digit, last_digit, readings[-1])
