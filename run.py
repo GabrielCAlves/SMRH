@@ -37,6 +37,8 @@ cropped = img.crop(coord)
 thresh = 100
 fn = lambda x : 255 if x > thresh else 0
 final_image = cropped.convert('L').point(fn, mode='1')
+
+cropped.save(PATH + '/smrh_app/static/images/image_cropped.png')
 final_image.save(PATH + '/smrh_app/static/images/image_threshold.png')
 
 # OCR
