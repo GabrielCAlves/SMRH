@@ -4,6 +4,7 @@ from datetime import datetime
 import os
 from picamera import PiCamera
 from PIL import Image
+import pytesseract
 
 # Get absolute path to project folder
 PATH = os.path.dirname(os.path.realpath(__file__))
@@ -23,7 +24,24 @@ try:
     camera.close()
 
     # Run tesseract
-    digit = int(run_tesseract(PATH, picture))
+    # Open image
+    img = Image.open(picture)
+
+    # Open crop coordinates
+    filename = PATH + '/smrh_app/static/data/coordinates.p'
+    with open(filename, 'rb') as file:
+        coord = pickle.load(file)
+
+    # Crop image
+    cropped = img.crop(coord)
+
+    # Apply threshold
+    thresh = 100
+    fn = lambda x : 255 if x > thresh else 0
+    final_image = cropped.convert('L').point(fn, mode='1')
+
+    # OCR
+    return pytesseract.image_to_string(final_image, config='-psm 10 nobatch digits')
 
 except:
     if os.path.exists(picture):
