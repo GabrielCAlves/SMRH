@@ -63,5 +63,3 @@ else:
     with open(filename3, 'wb') as file:
         pickle.dump(digit, file)
         file.close()
-
-    break;
