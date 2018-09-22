@@ -10,17 +10,17 @@ PATH = os.path.dirname(os.path.realpath(__file__))
 while True:
     try:
         # Get current time and date
-        time = time.strftime('%H:%M')
-        date = time.strftime('%y-%b-%d_%H:%M')
+        global time = time.strftime('%H:%M')
+        global date = time.strftime('%y-%b-%d_%H:%M')
 
         # picture saving PATH
-        picture = PATH + '/smrh_app/static/images/' + date + '.png'
+        global picture = PATH + '/smrh_app/static/images/' + date + '.png'
 
         # Take a picture
         get_picture(picture)
 
         # Run tesseract
-        digit = int(run_tesseract(PATH, picture))
+        global digit = int(run_tesseract(PATH, picture))
 
     except:
         # Delete useless picture
@@ -31,7 +31,7 @@ while True:
         filename1 = PATH + '/smrh_app/static/data/times.p'
         filename2 = PATH + '/smrh_app/static/data/readings.p'
         filename3 = PATH + '/smrh_app/static/data/last_digit.p'
-        
+
         # Open files
         with open(filename1, 'rb') as file:
             times = pickle.load(file)
