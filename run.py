@@ -34,7 +34,7 @@ with open(filename, 'rb') as file:
 cropped = img.crop(coord)
 
 # Apply threshold
-thresh = 200
+thresh = 100
 fn = lambda x : 255 if x > thresh else 0
 final_image = cropped.convert('L').point(fn, mode='1')
 final_image.save(PATH + '/smrh_app/static/images/image_threshold.png')
