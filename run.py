@@ -11,7 +11,7 @@ current_time = datetime.now().strftime('%H:%M')
 current_date = datetime.now().strftime('%y-%b-%d_%H:%M')
 
 # picture saving PATH
-PICTURE_PATH = cnf.PATH + '/smrh_app/static/images/' + current_date + '.png'
+PICTURE_PATH = cnf.PATH + '/server/static/images/' + current_date + '.png'
 
 # Take a picture
 get_picture(PICTURE_PATH)
