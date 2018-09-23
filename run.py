@@ -6,12 +6,14 @@ from lib import file
 import pickle
 import cnf
 
-# Get current time and date
+# Get current time
 CURRENT_TIME = datetime.now().strftime('%H:%M')
-CURRENT_DATE = datetime.now().strftime('%y-%b-%d_%H:%M')
+
+# CURRENT_DATE = datetime.now().strftime('%y-%b-%d_%H:%M')
+# PICTURE_PATH = cnf.PATH + '/server/static/images/' + CURRENT_DATE + '.png'
 
 # picture saving PATH
-PICTURE_PATH = cnf.PATH + '/server/static/images/' + CURRENT_DATE + '.png'
+PICTURE_PATH = cnf.PATH + '/server/static/images/last_picture.png'
 
 # Take a picture
 get_picture(PICTURE_PATH)
