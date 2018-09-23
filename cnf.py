@@ -18,9 +18,6 @@ THRESHOLD_VALUE = 100
 # Absolute path to coordinates file
 COORDINATES_PATH = PATH + '/data/coordinates.p'
 
-# Absolute path to multiplier file
-MULTIPLIER_PATH = PATH + '/data/multiplier.p'
-
 # Absolute path to times list file
 TIMES_PATH = PATH + '/server/static/data/times.p'
 
