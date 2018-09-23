@@ -62,9 +62,10 @@ if __name__ == '__main__':
 
     # Get reading
     readings = [int(input("Leitura: "))]
+    last_reading = str(readings[0])
 
     # Get digit
-    digits = [int(str(readings)[-len(str(MULTIPLIER))])]
+    digits = [int(last_reading[-len(str(MULTIPLIER))])]
 
     # Create times and readings lists and last_digit file
     files.write_it(TIMES_PATH, times)
