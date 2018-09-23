@@ -14,7 +14,13 @@ filename2 = PATH + '/static/data/readings.p'
 
 @smrh.route('/')
 def index():
-    return render_template('index.html',)
+    with open(filename1, 'rb') as temp_file:
+        times = pickle.load(temp_file)
+
+    with open(filename2, 'rb') as temp_file:
+        readings = pickle.load(temp_file)
+
+    return render_template('index.html', FIRST_TIME=times[0], LAST_TIME=times[-1], FIRST_READING=readings[0],LAST_READING=readings[-1])
 
 @smrh.route('/graph')
 def graph():
