@@ -45,11 +45,8 @@ if __name__ == '__main__':
         # Get and save crop coordinates
         get_coordinates(COORDINATES_PATH)
 
-    # Enter 's' to skip
-    choice = input('Deseja inserir o multiplicador? [s/n] ')
-    if(choice == 's' or choice == 'S'):
-        # Get and save multiplier
-        MULTIPLIER = get_multiplier(MULTIPLIER_PATH)
+    # Get and save multiplier
+    MULTIPLIER = get_multiplier(MULTIPLIER_PATH)
 
     # Enter 's' to skip
     choice = input('Deseja inserir o threshold? [s/n] ')
