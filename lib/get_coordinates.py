@@ -1,5 +1,5 @@
 import pickle
-import file
+from lib import file
 
 # Get coordinates for image cropping
 def get_coordinates(COORDINATES_PATH):
