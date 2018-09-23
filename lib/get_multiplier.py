@@ -8,3 +8,6 @@ def get_multiplier(MULTIPLIER_PATH):
 
     # Save and pickle
     files.write_it(MULTIPLIER_PATH, multiplier)
+
+    # Return multiplier
+    return multiplier
