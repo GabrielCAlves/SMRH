@@ -2,11 +2,13 @@
 
 {% block content %}
 <p>Horário Inicial: {{FIRST_TIME}} | Último Horário: {{LAST_TIME}}</p>
-<p>Leitura Inicial: {{FIRST_READING}} | Última Leitura: {{LAST_READING}}</p>
+<p>Leitura Inicial (litros): {{FIRST_READING}} | Última Leitura (litros): {{LAST_READING}}</p>
+<p> Gasto total (litros): {{DIF_READING}}
+<p>
+  <img src="/static/images/last_picture.png" style="max-height:300px">
+</p>
 <br>
 <p>
-  <img src="/static/images/last_picture.png" style="max-height:350px">
-  <br>
   <img src="/static/images/result.png">
 </p>
 {% endblock %}

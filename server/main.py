@@ -20,7 +20,9 @@ def index():
     with open(filename2, 'rb') as temp_file:
         readings = pickle.load(temp_file)
 
-    return render_template('index.html', FIRST_TIME=times[0], LAST_TIME=times[-1], FIRST_READING=readings[0],LAST_READING=readings[-1])
+    delta_reading = readings[-1] - readings[0]
+
+    return render_template('index.html', FIRST_TIME=times[0], LAST_TIME=times[-1], FIRST_READING=readings[0],LAST_READING=readings[-1], DIF_READING=delta_reading)
 
 @smrh.route('/graph')
 def graph():
