@@ -7,4 +7,4 @@ def read_it(FILE_PATH):
 def write_it(FILE_PATH, variable):
     with open(FILE_PATH, 'wb') as temp_file:
         pickle.dump(variable, temp_file)
-        file.close()
+        temp_file.close()
