@@ -5,7 +5,7 @@ import cnf
 camera = PiCamera()
 
 # Take picture and save it
-camera.capture(cnf.PATH + '/test_picture.py')
+camera.capture(cnf.PATH + '/test_picture.png')
 
 # Close camera
 camera.close()
