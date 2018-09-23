@@ -32,7 +32,7 @@ TO-DO
 * **Gabriel Correa** - *Desenvolvimento Python* - [GabrielCAlves](https://github.com/GabrielCAlves)
 * **Eduardo Quirino** - *Desenvolvimento Web* - [qrno](https://github.com/qrno)
 
-## Licensa
+## Licença
 
 TO-DO
 
