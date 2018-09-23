@@ -24,7 +24,7 @@ def graph():
     with open(filename2, 'rb') as temp_file:
         readings = pickle.load(temp_file)
 
-    graph = pygal.Line(x_title='Horário Registrado', y_title='Consumo Total (m³)', show_legend=False, style=BlueStyle, x_label_rotation=10, human_readable=True, show_y_guides=False)
+    graph = pygal.Line(x_title='Horário Registrado', y_title='Consumo Total (litros)', show_legend=False, style=BlueStyle, x_label_rotation=10, human_readable=True, show_y_guides=False)
     graph.title = 'SMRH - Consumo Total de Água'
 
     # Show last 10 readings/times
