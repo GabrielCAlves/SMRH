@@ -1,4 +1,5 @@
 from lib.get_coordinates import get_coordinates
+from lib import file
 import time
 import os
 
@@ -44,20 +45,14 @@ if __name__ == '__main__':
     last_digit = int(str(readings)[-len(str(MULTIPLIER))])
 
     # Create times and readings lists and last_digit file
-    with open(TIMES_PATH, 'wb') as file:
-        pickle.dump(times, file)
-        file.close()
-
-    with open(READINGS_PATH, 'wb') as file:
-        pickle.dump(readings, file)
-        file.close()
-
-    with open(LAST_DIGIT_PATH, 'wb') as file:
-        pickle.dump(last_digit, file)
-        file.close()
+    file.write_it(TIMES_PATH, times)
+    file.write_it(READINGS_PATH, readings)
+    file.write_it(LAST_DIGIT_PATH, last_digit)
 
 #############################################
 
 # Define coordinates for image cropping
 with open(COORDINATES_PATH, 'rb') as file:
     COORDINATES = pickle.load(file)
+
+file.read_it()

@@ -1,5 +1,3 @@
-import pickle
-
 # Update values
 def update_values(MULTIPLIER, digit, last_digit, last_reading):
     # Test conditions

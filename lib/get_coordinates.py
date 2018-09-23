@@ -1,4 +1,5 @@
 import pickle
+import file
 
 # Get coordinates for image cropping
 def get_coordinates(COORDINATES_PATH):
@@ -11,6 +12,4 @@ def get_coordinates(COORDINATES_PATH):
     # Save and pickle
     coordinates = (x0, y0, x1, y1)
 
-    with open(COORDINATES_PATH, 'wb') as file:
-        pickle.dump(coordinates, file)
-        file.close()
+    file.write_it(COORDINATES_PATH, coordinates)

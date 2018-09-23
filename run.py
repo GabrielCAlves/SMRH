@@ -2,6 +2,7 @@ from lib.run_tesseract import run_tesseract
 from lib.update_values import update_values
 from lib.get_picture import get_picture
 from datetime import datetime
+from lib import file
 import pickle
 import cnf
 
@@ -19,15 +20,9 @@ get_picture(PICTURE_PATH)
 digit = run_tesseract(PICTURE_PATH, cnf.COORDINATES, cnf.THRESHOLD_VALUE)
 
 # Open files
-with open(cnf.TIMES_PATH, 'rb') as file:
-    times = pickle.load(file)
-
-with open(cnf.READINGS_PATH, 'rb') as file:
-    readings = pickle.load(file)
-
-with open(cnf.LAST_DIGIT_PATH, 'rb') as file:
-    last_digit = pickle.load(file)
-
+times = file.read_it(cnf.TIMES_PATH)
+readings = file.read_it(cnf.READINGS_PATH)
+last_digit = file.read_it(cnf.LAST_DIGIT_PATH)
 last_reading = readings[-1]
 
 # Update values
@@ -38,14 +33,6 @@ times.append(current_time)
 readings.append(reading)
 
 # Write in files
-with open(cnf.TIMES_PATH 'wb') as file:
-    pickle.dump(times, file)
-    file.close()
-
-with open(cnf.READINGS_PATH, 'wb') as file:
-    pickle.dump(readings, file)
-    file.close()
-
-with open(cnf.LAST_DIGIT_PATH, 'wb') as file:
-    pickle.dump(digit, file)
-    file.close()
+file.write_it(cnf.TIMES_PATH, times)
+file.write_it(cnf.READINGS_PATH, readings)
+file.write_it(cnf.LAST_DIGIT_PATH, digit)
