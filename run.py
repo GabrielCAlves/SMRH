@@ -22,7 +22,7 @@ get_picture(PICTURE_PATH)
 CURRENT_DIGIT = run_tesseract(cnf.PATH, PICTURE_PATH, cnf.COORDINATES, cnf.THRESHOLD)
 
 # Update values
-CURRENT_READING = update_values(cnf.MULTIPLIER, CURRENT_DIGIT, cnf.DIGITS[-1], cnf.READINGS[-1])
+CURRENT_READING = int(update_values(cnf.MULTIPLIER, CURRENT_DIGIT, cnf.DIGITS[-1], cnf.READINGS[-1]))
 
 # Append lists
 cnf.TIMES.append(CURRENT_TIME)

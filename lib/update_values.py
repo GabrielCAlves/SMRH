@@ -6,5 +6,9 @@ def update_values(MULTIPLIER, digit, last_digit, last_reading):
             return last_reading + MULTIPLIER
         # else:
         return last_reading + (last_digit - digit) * MULTIPLIER
+
+    if last_digit > digit:
+        return '0'
+
     # else:
     return last_reading + (digit - last_digit) * MULTIPLIER
