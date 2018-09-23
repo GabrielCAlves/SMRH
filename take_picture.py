@@ -1,4 +1,5 @@
 from picamera import PiCamera
+import os
 
 # Absolute path to project folder
 PATH = os.path.dirname(os.path.realpath(__file__))
