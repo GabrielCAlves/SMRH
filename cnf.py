@@ -55,4 +55,4 @@ if __name__ == '__main__':
 with open(COORDINATES_PATH, 'rb') as file:
     COORDINATES = pickle.load(file)
 
-file.read_it()
+COORDINATES = file.read_it(COORDINATES_PATH)
