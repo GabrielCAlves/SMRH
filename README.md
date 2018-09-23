@@ -1,6 +1,6 @@
 # SMRH - Sistema de Monitoramento de Recursos Hídricos
 
-Um leitor de hidrômetros usando OCR.
+Sistema automatizado de monitoramento de recursos hídricos: leitura, formação de gráficos e alertas de uso excessivo/possíveis vazamentos.
 
 ## Como Usar
 
