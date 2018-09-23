@@ -15,4 +15,4 @@ def run_tesseract(PICTURE_PATH, COORDINATES, THRESHOLD_VALUE):
     final_image = cropped.convert('L').point(fn, mode='1')
 
     # Return OCR'd value as an integer
-    return int(pytesseract.image_to_string(final_image, config='-psm 10 nobatch digits'))
+    return int(pytesseract.image_to_string(final_image, lang='analog', config='-psm 10 nobatch digits'))
