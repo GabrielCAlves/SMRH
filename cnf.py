@@ -20,6 +20,8 @@ COORDINATES_PATH = PATH + '/data/coordinates.p'
 # Absolute path to multiplier file
 MULTIPLIER_PATH = PATH + '/data/multiplier.p'
 
+# 
+
 # Do the following if executed by user
 if __name__ == '__main__':
     # Get and save crop coordinates
