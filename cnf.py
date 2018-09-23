@@ -41,7 +41,7 @@ if __name__ == '__main__':
     readings = [int(input("Leitura: "))]
 
     # Get digit
-    last_digit = str(readings)[-len(str(MULTIPLIER))]
+    last_digit = int(str(readings)[-len(str(MULTIPLIER))])
 
     # Create times and readings lists and last_digit file
     with open(TIMES_PATH, 'wb') as file:
@@ -58,6 +58,6 @@ if __name__ == '__main__':
 
 #############################################
 
-# Defines coordinates for image cropping
+# Define coordinates for image cropping
 with open(COORDINATES_PATH, 'rb') as file:
     COORDINATES = pickle.load(file)

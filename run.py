@@ -1,62 +1,55 @@
-from smrh_lib.functions import get_picture, run_tesseract, update_values
-import pickle
-from datetime import datetime
-import os
+from lib.run_tesseract import run_tesseract
+from lib.update_values import update_values
+from lib.get_picture import get_picture
 from picamera import PiCamera
+from datetime import datetime
 from PIL import Image
 import pytesseract
-
-# Get absolute path to project folder
-PATH = os.path.dirname(os.path.realpath(__file__))
+import pickle
+import cnf
+import os
 
 # Get current time and date
-time = datetime.now().strftime('%H:%M')
-date = datetime.now().strftime('%y-%b-%d_%H:%M')
+current_time = datetime.now().strftime('%H:%M')
+current_date = datetime.now().strftime('%y-%b-%d_%H:%M')
 
 # picture saving PATH
-picture = PATH + '/smrh_app/static/images/' + date + '.png'
+PICTURE_PATH = cnf.PATH + '/smrh_app/static/images/' + current_date + '.png'
 
 # Take a picture
-get_picture(picture)
+get_picture(PICTURE_PATH)
 
 # Run tesseract
-digit = run_tesseract(PATH, picture)
-
-#if os.path.exists(picture):
-#   os.remove(picture)
-
-filename1 = PATH + '/smrh_app/static/data/times.p'
-filename2 = PATH + '/smrh_app/static/data/readings.p'
-filename3 = PATH + '/smrh_app/static/data/last_digit.p'
+digit = run_tesseract(PICTURE_PATH, cnf.COORDINATES, cnf.THRESHOLD_VALUE)
 
 # Open files
-with open(filename1, 'rb') as file:
+with open(cnf.TIMES_PATH, 'rb') as file:
     times = pickle.load(file)
 
-with open(filename2, 'rb') as file:
+with open(cnf.READINGS_PATH, 'rb') as file:
     readings = pickle.load(file)
 
-with open(filename3, 'rb') as file:
-    last_digit = int(pickle.load(file))
+with open(cnf.LAST_DIGIT_PATH, 'rb') as file:
+    last_digit = pickle.load(file)
 
-last_reading = int(readings[-1])
+last_reading = readings[-1]
 
 # Update values
-reading = update_values(PATH, digit, last_digit, last_reading)
+reading = update_values(cnf.MULTIPLIER, digit, last_digit, last_reading)
 
 # Append lists
-times.append(time)
+times.append(current_time)
 readings.append(reading)
 
 # Write in files
-with open(filename1, 'wb') as file:
+with open(cnf.TIMES_PATH 'wb') as file:
     pickle.dump(times, file)
     file.close()
 
-with open(filename2, 'wb') as file:
+with open(cnf.READINGS_PATH, 'wb') as file:
     pickle.dump(readings, file)
     file.close()
 
-with open(filename3, 'wb') as file:
+with open(cnf.LAST_DIGIT_PATH, 'wb') as file:
     pickle.dump(digit, file)
     file.close()
