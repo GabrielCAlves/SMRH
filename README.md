@@ -35,7 +35,3 @@ TO-DO
 ## Licença
 
 TO-DO
-
-## Agradecimentos
-
-* TO-DO
