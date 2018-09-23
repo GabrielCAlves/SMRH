@@ -17,7 +17,7 @@ PICTURE_PATH = cnf.PATH + '/server/static/images/' + CURRENT_DATE + '.png'
 get_picture(PICTURE_PATH)
 
 # Run tesseract
-CURRENT_DIGIT = run_tesseract(PICTURE_PATH, cnf.COORDINATES, cnf.THRESHOLD_VALUE)
+CURRENT_DIGIT = run_tesseract(PICTURE_PATH, cnf.COORDINATES, cnf.THRESHOLD)
 
 # Update values
 CURRENT_READING = update_values(cnf.MULTIPLIER, CURRENT_DIGIT, cnf.DIGITS[-1], cnf.READINGS[-1])

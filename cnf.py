@@ -1,20 +1,24 @@
 from lib.get_coordinates import get_coordinates
+from lib.get_multiplier import get_multiplier
+from lib.get_threshold import get_threshold
 from lib import file
 import time
 import os
 
-#############################
-## Define global variables ##
-#############################
+#############################################################################
+#############################################################################
+#############################################################################
+### Set variable paths: #####################################################
+#############################################################################
 
 # Absolute path to project folder
 PATH = os.path.dirname(os.path.realpath(__file__))
 
-# Define multiplier value for readings
-MULTIPLIER = 10
+# Absolute path to multiplier file
+MULTIPLIER_PATH = PATH + '/data/multiplier.p'
 
-# Define threshold value for image binarization
-THRESHOLD_VALUE = 100
+# Absolute path to threshold value file
+THRESHOLD_PATH = PATH + '/data/threshold.p'
 
 # Absolute path to coordinates file
 COORDINATES_PATH = PATH + '/data/coordinates.p'
@@ -28,12 +32,30 @@ READINGS_PATH = PATH + '/server/static/data/readings.p'
 # Absolute path to last digit file
 DIGITS_PATH = PATH + '/server/static/data/digits.p'
 
-#############################################
+#############################################################################
+#############################################################################
+#############################################################################
+### Do the following if executed by user: ###################################
+#############################################################################
 
-# Do the following if executed by user
 if __name__ == '__main__':
-    # Get and save crop coordinates
-    get_coordinates(COORDINATES_PATH)
+    # Enter 's' to skip
+    choice = input('Deseja pular as coordenadas? [s/n] ')
+    if(choice == 's' || choice == 'S'):
+        # Get and save crop coordinates
+        get_coordinates(COORDINATES_PATH)
+
+    # Enter 's' to skip
+    choice = input('Deseja pular o multiplicador? [s/n] ')
+    if(choice == 's' || choice == 'S'):
+        # Get and save multiplier
+        get_multiplier(MULTIPLIER_PATH)
+
+    # Enter 's' to skip
+    choice = input('Deseja pular o threshold? [s/n] ')
+    if(choice == 's' || choice == 'S'):
+        # Get and save threshold
+        get_threshold(THRESHOLD_PATH)
 
     # Get current time and date
     times = [time.strftime('%H:%M')]
@@ -49,7 +71,18 @@ if __name__ == '__main__':
     file.write_it(READINGS_PATH, readings)
     file.write_it(DIGITS_PATH, digits)
 
-#############################################
+#############################################################################
+#############################################################################
+#############################################################################
+#############################################################################
+### Define global variables: ################################################
+#############################################################################
+
+# Multiplier for readings
+MULTIPLIER = file.read_it(MULTIPLIER_PATH)
+
+# Threshold value
+THRESHOLD = file.read_it(THRESHOLD_PATH)
 
 # Crop coordinates
 COORDINATES = file.read_it(COORDINATES_PATH)
@@ -60,5 +93,5 @@ TIMES = file.read_it(TIMES_PATH)
 # Readings list
 READINGS = file.read_it(READINGS_PATH)
 
-# Digits list 
+# Digits list
 DIGITS = file.read_it(DIGITS_PATH)

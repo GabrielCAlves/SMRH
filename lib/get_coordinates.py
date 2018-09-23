@@ -11,5 +11,4 @@ def get_coordinates(COORDINATES_PATH):
 
     # Save and pickle
     coordinates = (x0, y0, x1, y1)
-
     file.write_it(COORDINATES_PATH, coordinates)
