@@ -51,8 +51,4 @@ if __name__ == '__main__':
 
 #############################################
 
-# Define coordinates for image cropping
-with open(COORDINATES_PATH, 'rb') as file:
-    COORDINATES = pickle.load(file)
-
 COORDINATES = file.read_it(COORDINATES_PATH)
