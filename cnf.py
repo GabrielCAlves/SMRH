@@ -26,7 +26,7 @@ TIMES_PATH = PATH + '/server/static/data/times.p'
 READINGS_PATH = PATH + '/server/static/data/readings.p'
 
 # Absolute path to last digit file
-LAST_DIGIT_PATH = PATH + '/server/static/data/last_digit.p'
+DIGITS_PATH = PATH + '/server/static/data/digits.p'
 
 #############################################
 
@@ -42,13 +42,23 @@ if __name__ == '__main__':
     readings = [int(input("Leitura: "))]
 
     # Get digit
-    last_digit = int(str(readings)[-len(str(MULTIPLIER))])
+    digits = [int(str(readings)[-len(str(MULTIPLIER))])]
 
     # Create times and readings lists and last_digit file
     file.write_it(TIMES_PATH, times)
     file.write_it(READINGS_PATH, readings)
-    file.write_it(LAST_DIGIT_PATH, last_digit)
+    file.write_it(DIGITS_PATH, digits)
 
 #############################################
 
+# Crop coordinates
 COORDINATES = file.read_it(COORDINATES_PATH)
+
+# Times list
+TIMES = file.read_it(TIMES_PATH)
+
+# Readings list
+READINGS = file.read_it(READINGS_PATH)
+
+# Digits list 
+DIGITS = file.read_it(DIGITS_PATH)

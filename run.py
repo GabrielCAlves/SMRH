@@ -7,32 +7,27 @@ import pickle
 import cnf
 
 # Get current time and date
-current_time = datetime.now().strftime('%H:%M')
-current_date = datetime.now().strftime('%y-%b-%d_%H:%M')
+CURRENT_TIME = datetime.now().strftime('%H:%M')
+CURRENT_DATE = datetime.now().strftime('%y-%b-%d_%H:%M')
 
 # picture saving PATH
-PICTURE_PATH = cnf.PATH + '/server/static/images/' + current_date + '.png'
+PICTURE_PATH = cnf.PATH + '/server/static/images/' + CURRENT_DATE + '.png'
 
 # Take a picture
 get_picture(PICTURE_PATH)
 
 # Run tesseract
-digit = run_tesseract(PICTURE_PATH, cnf.COORDINATES, cnf.THRESHOLD_VALUE)
-
-# Open files
-times = file.read_it(cnf.TIMES_PATH)
-readings = file.read_it(cnf.READINGS_PATH)
-last_digit = file.read_it(cnf.LAST_DIGIT_PATH)
-last_reading = readings[-1]
+CURRENT_DIGIT = run_tesseract(PICTURE_PATH, cnf.COORDINATES, cnf.THRESHOLD_VALUE)
 
 # Update values
-reading = update_values(cnf.MULTIPLIER, digit, last_digit, last_reading)
+CURRENT_READING = update_values(cnf.MULTIPLIER, CURRENT_DIGIT, cnf.DIGITS[-1], cnf.READINGS[-1])
 
 # Append lists
-times.append(current_time)
-readings.append(reading)
+cnf.TIMES.append(CURRENT_TIME)
+cnf.READINGS.append(CURRENT_READING)
+cnf.DIGITS.append(CURRENT_DIGIT)
 
 # Write in files
-file.write_it(cnf.TIMES_PATH, times)
-file.write_it(cnf.READINGS_PATH, readings)
-file.write_it(cnf.LAST_DIGIT_PATH, digit)
+file.write_it(cnf.TIMES_PATH, cnf.TIMES)
+file.write_it(cnf.READINGS_PATH, cnf.READINGS)
+file.write_it(cnf.DIGITS_PATH, cnf.DIGITS)
