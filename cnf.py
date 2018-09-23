@@ -17,13 +17,14 @@ THRESHOLD_VALUE = 100
 # Absolute path to coordinates file
 COORDINATES_PATH = PATH + '/data/coordinates.p'
 
+# Absolute path to multiplier file
+MULTIPLIER_PATH = PATH + '/data/multiplier.p'
+
 # Do the following if executed by user
 if __name__ == '__main__':
     # Get and save crop coordinates
     get_coordinates(COORDINATES_PATH)
 
-    
-
-# Define coordinates for image cropping
+# Defines coordinates for image cropping
 with open(COORDINATES_PATH, 'rb') as file:
     COORDINATES = pickle.load(file)
