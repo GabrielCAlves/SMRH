@@ -1,4 +1,3 @@
-from lib import file
 import cnf
 
 print(cnf.TIMES)

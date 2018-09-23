@@ -1,5 +1,5 @@
 import pickle
-from lib import file
+from lib import files
 
 # Get multiplier
 def get_multiplier(MULTIPLIER_PATH):
@@ -7,4 +7,4 @@ def get_multiplier(MULTIPLIER_PATH):
     multiplier = int(input("Multiplicador de leitura: "))
 
     # Save and pickle
-    file.write_it(MULTIPLIER_PATH, multiplier)
+    files.write_it(MULTIPLIER_PATH, multiplier)

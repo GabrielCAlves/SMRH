@@ -1,5 +1,5 @@
 import pickle
-from lib import file
+from lib import files
 
 # Get threshold value
 def get_threshold(THRESHOLD_PATH):
@@ -7,4 +7,4 @@ def get_threshold(THRESHOLD_PATH):
     threshold = int(input("Valor de threshold: "))
 
     # Save and pickle
-    file.write_it(THRESHOLD_PATH, threshold)
+    files.write_it(THRESHOLD_PATH, threshold)

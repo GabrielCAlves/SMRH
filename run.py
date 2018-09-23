@@ -2,7 +2,7 @@ from lib.run_tesseract import run_tesseract
 from lib.update_values import update_values
 from lib.get_picture import get_picture
 from datetime import datetime
-from lib import file
+from lib import files
 import pickle
 import cnf
 
@@ -30,6 +30,6 @@ cnf.READINGS.append(CURRENT_READING)
 cnf.DIGITS.append(CURRENT_DIGIT)
 
 # Write in files
-file.write_it(cnf.TIMES_PATH, cnf.TIMES)
-file.write_it(cnf.READINGS_PATH, cnf.READINGS)
-file.write_it(cnf.DIGITS_PATH, cnf.DIGITS)
+files.write_it(cnf.TIMES_PATH, cnf.TIMES)
+files.write_it(cnf.READINGS_PATH, cnf.READINGS)
+files.write_it(cnf.DIGITS_PATH, cnf.DIGITS)
