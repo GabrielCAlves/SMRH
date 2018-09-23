@@ -1,13 +1,9 @@
 from lib.run_tesseract import run_tesseract
 from lib.update_values import update_values
 from lib.get_picture import get_picture
-from picamera import PiCamera
 from datetime import datetime
-from PIL import Image
-import pytesseract
 import pickle
 import cnf
-import os
 
 # Get current time and date
 current_time = datetime.now().strftime('%H:%M')
