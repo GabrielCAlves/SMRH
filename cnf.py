@@ -41,19 +41,19 @@ DIGITS_PATH = PATH + '/server/static/data/digits.p'
 if __name__ == '__main__':
     # Enter 's' to skip
     choice = input('Deseja pular as coordenadas? [s/n] ')
-    if(choice == 's' || choice == 'S'):
+    if(choice == 's' or choice == 'S'):
         # Get and save crop coordinates
         get_coordinates(COORDINATES_PATH)
 
     # Enter 's' to skip
     choice = input('Deseja pular o multiplicador? [s/n] ')
-    if(choice == 's' || choice == 'S'):
+    if(choice == 's' or choice == 'S'):
         # Get and save multiplier
         get_multiplier(MULTIPLIER_PATH)
 
     # Enter 's' to skip
     choice = input('Deseja pular o threshold? [s/n] ')
-    if(choice == 's' || choice == 'S'):
+    if(choice == 's' or choice == 'S'):
         # Get and save threshold
         get_threshold(THRESHOLD_PATH)
 
