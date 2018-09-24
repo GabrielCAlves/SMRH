@@ -45,21 +45,21 @@ if __name__ == '__main__':
         # Get and save crop coordinates
         get_coordinates(COORDINATES_PATH)
 
-    # Get and save multiplier
-    MULTIPLIER = get_multiplier(MULTIPLIER_PATH)
-
     # Enter 's' to skip
     choice = input('Deseja inserir o threshold? [s/n] ')
     if(choice == 's' or choice == 'S'):
         # Get and save threshold
         get_threshold(THRESHOLD_PATH)
 
-    # Get current time and date
-    times = [time.strftime('%H:%M')]
+    # Get and save multiplier
+    MULTIPLIER = get_multiplier(MULTIPLIER_PATH)
 
     # Get reading
     readings = [int(input("Leitura: "))]
     last_reading = str(readings[0])
+
+    # Get current time and date
+    times = [time.strftime('%H:%M')]
 
     # Get digit
     digits = [int(last_reading[-len(str(MULTIPLIER))])]
