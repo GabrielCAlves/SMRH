@@ -21,16 +21,17 @@
 
   {% block content %}{% endblock %}
 
-<script>
-  var timeleft = 60;
-var downloadTimer = setInterval(function(){
-  document.getElementById("progressBar").value = 10 - --timeleft;
-  if(timeleft <= 0)
-    clearInterval(downloadTimer);
-},1000);
-</script>
-<p>Carregando próxima leitura...</p>
-<progress value="0" max="60" id="progressBar"></progress>
+  <p> Próxima leitura em <span id="countdowntimer">10 </span> segundos</p>
+
+  <script type="text/javascript">
+      var timeleft = 60;
+      var downloadTimer = setInterval(function(){
+      timeleft--;
+      document.getElementById("countdowntimer").textContent = timeleft;
+      if(timeleft <= 0)
+          clearInterval(downloadTimer);
+      },1000);
+  </script>
 
 </body>
 </html>
