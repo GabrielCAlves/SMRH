@@ -10,11 +10,11 @@
 <body>
 
   <header>
-    <a href = "{{ url_for('index') }}">
+    <a href = "/">
       <img src="/static/images/source/smrh.png" style="height:50px">
     </a>
-    <a href="{{ url_for('index') }}">Início</a>
-    <a href="{{ url_for('graph') }}">Gráfico</a>
+    <a href="/">Início</a>
+    <a href="/graph">Gráfico</a>
   </header>
 
   <hr>
@@ -22,7 +22,7 @@
   <div class="container">
       <h1>Welcome to Flask!</h2>
       <br>
-      <p>Click <a href="/graph">here</a> to go home.</p>
+      <p>Click <a href="/">here</a> to go home.</p>
     </div>
 
   {% block content %}{% endblock %}
