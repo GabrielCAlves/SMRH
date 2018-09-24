@@ -1,12 +1,10 @@
 from flask import Flask, render_template, url_for
-from flask_bootstrap import Bootstrap
 from pygal.style import BlueStyle
 import pickle
 import pygal
 import os
 
 smrh = Flask(__name__)
-Bootstrap(smrh)
 
 # Get absolute path to project folder
 PATH = os.path.dirname(os.path.realpath(__file__))
