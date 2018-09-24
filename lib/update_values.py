@@ -13,8 +13,9 @@ def update_values(MULTIPLIER, digit, last_digit, last_reading):
     if last_digit == 8:
         if digit == 0:
             return last_reading + 2 * MULTIPLIER
-        # else:
-        return last_reading + (digit * MULTIPLIER) + 2 * MULTIPLIER
+
+        if digit != 9:
+            return last_reading + (digit * MULTIPLIER) + 2 * MULTIPLIER
 
     if last_digit > digit:
         return 'ERROR'
