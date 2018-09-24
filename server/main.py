@@ -11,6 +11,7 @@ PATH = os.path.dirname(os.path.realpath(__file__))
 
 filename1 = PATH + '/static/data/times.p'
 filename2 = PATH + '/static/data/readings.p'
+filename3 = PATH + '/static/data/digits.p'
 
 @smrh.route('/')
 def index():
@@ -20,9 +21,13 @@ def index():
     with open(filename2, 'rb') as temp_file:
         readings = pickle.load(temp_file)
 
-    delta_reading = readings[-1] - readings[0]
+    with open(filename3, 'rb') as temp_file:
+        digits = pickle.load(temp_file)
 
-    return render_template('index.html', FIRST_TIME=times[0], LAST_TIME=times[-1], FIRST_READING=readings[0],LAST_READING=readings[-1], DIF_READING=delta_reading)
+    delta_reading = readings[-1] - readings[0]
+    last_digit = digits[-1]
+
+    return render_template('index.html', FIRST_TIME=times[0], LAST_TIME=times[-1], FIRST_READING=readings[0],LAST_READING=readings[-1], DIF_READING=delta_reading, LAST_DIGIT=last_digit)
 
 @smrh.route('/graph')
 def graph():
