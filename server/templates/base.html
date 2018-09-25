@@ -9,13 +9,18 @@
 <body>
 
   {% set navigation_bar = [
-    ('/', 'index', 'Index'),
-    ('/downloads/', 'downloads', 'Downloads'),
-    ('/about/', 'about', 'About')
+    ('/', 'início', 'Início'),
+    ('/graph/', 'gráfico', 'Gráfico'),
 ] -%}
 
 {% set active_page = active_page|default('index') -%}
-...
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a href="/" class="navbar-brand">
+        <img src="/static/images/source/smrh.png" style="height:30px; margin-top:-10px">
+      </a>
+    </div>
 <ul id="navigation">
     {% for href, id, caption in navigation_bar %}
     <li{% if id == active_page %} class="active"{% endif
@@ -23,8 +28,8 @@
     </li>
 {% endfor %}
 </ul>
-
-  {% block navbar %}{% endblock %}
+</div>
+</nav>
 
   {% block content %}{% endblock %}
 

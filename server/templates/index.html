@@ -1,22 +1,6 @@
 {% extends "base.html" %}
 {% set active_page = "index" %}
 
-{% block navbar %}
-<nav class="navbar navbar-light bg-light">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a href="/" class="navbar-brand">
-        <img src="/static/images/source/smrh.png" style="height:30px; margin-top:-10px">
-      </a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="/">Início</a></li>
-      <li><a href="/graph">Gráfico</a></li>
-    </ul>
-  </div>
-</nav>
-{% endblock %}
-
 {% block content %}
 <p>Horário Inicial: {{FIRST_TIME}} | Último Horário: {{LAST_TIME}}</p>
 <p>Leitura Inicial (litros): {{FIRST_READING}} | Última Leitura (litros): {{LAST_READING}}</p>
