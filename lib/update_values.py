@@ -2,7 +2,7 @@
 def update_values(MULTIPLIER, digit, last_digit, last_reading):
     # Test conditions
     if last_digit == digit:
-        return last_reading;
+        return last_reading
 
     if last_digit == 9:
         if digit == 0:
