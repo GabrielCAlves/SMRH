@@ -8,6 +8,22 @@
 </head>
 <body>
 
+  {% set navigation_bar = [
+    ('/', 'index', 'Index'),
+    ('/downloads/', 'downloads', 'Downloads'),
+    ('/about/', 'about', 'About')
+] -%}
+
+{% set active_page = active_page|default('index') -%}
+...
+<ul id="navigation">
+    {% for href, id, caption in navigation_bar %}
+    <li{% if id == active_page %} class="active"{% endif
+    %}><a href="{{ href|e }}">{{ caption|e }}</a>
+    </li>
+{% endfor %}
+</ul>
+
   {% block navbar %}{% endblock %}
 
   {% block content %}{% endblock %}
