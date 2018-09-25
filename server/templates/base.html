@@ -21,7 +21,7 @@
         <img src="/static/images/source/smrh.png" style="height:30px; margin-top:-10px">
       </a>
     </div>
-<ul id="navigation">
+<ul id="navigation" class="nav navbar-nav">
     {% for href, id, caption in navigation_bar %}
     <li{% if id == active_page %} class="active"{% endif
     %}><a href="{{ href|e }}">{{ caption|e }}</a>
