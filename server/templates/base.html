@@ -10,10 +10,10 @@
 
   {% set navigation_bar = [
     ('/', 'início', 'Início'),
-    ('/graph/', 'gráfico', 'Gráfico'),
+    ('/graph', 'gráfico', 'Gráfico'),
 ] -%}
 
-{% set active_page = active_page|default('index') -%}
+{% set active_page = active_page|default('início') -%}
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
     <div class="navbar-header">
