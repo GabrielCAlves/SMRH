@@ -1,5 +1,20 @@
 {% extends "base.html" %}
 
+{% block navbar %}
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        <img src="/static/images/source/smrh.png" style="height:35px"
+      </a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Início</a></li>
+      <li><a href="/graph">Gráfico</a></li>
+  </div>
+</nav>
+{% endblock %}
+
 {% block content %}
 <p style="text-align:center">
     <embed type="image/svg+xml" src={{graph_data|safe}} style="max-height:500px" />
