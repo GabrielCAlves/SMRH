@@ -23,7 +23,7 @@
     </div>
 <ul id="navigation" class="nav navbar-nav">
     {% for href, id, caption in navigation_bar %}
-    <li{% if id == active_page %} class="active"{% endif
+    <li{% if id == active_page %} class="nav-item active"{% endif
     %}><a href="{{ href|e }}">{{ caption|e }}</a>
     </li>
 {% endfor %}
