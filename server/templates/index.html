@@ -2,7 +2,6 @@
 {% set active_page = "início" %}
 
 {% block content %}
-<div class="text-center">
 <p>Horário Inicial: {{FIRST_TIME}} | Último Horário: {{LAST_TIME}}</p>
 <p>Leitura Inicial (litros): {{FIRST_READING}} | Última Leitura (litros): {{LAST_READING}}</p>
 <p> Gasto total (litros): {{DIF_READING}}
@@ -10,5 +9,4 @@
   <img src="/static/images/last_picture.png" style="max-height:300px">
 </p>
 <p>Último algarismo lido: {{LAST_DIGIT}}</p>
-</div>
 {% endblock %}
