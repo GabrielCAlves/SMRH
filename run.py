@@ -15,13 +15,26 @@ CURRENT_TIME = datetime.now().strftime('%H:%M')
 # picture saving PATH
 PICTURE_PATH = cnf.PATH + '/server/static/images/last_picture.png'
 
-# Take a picture
-get_picture(PICTURE_PATH)
+all_digits = []
 
-# Run tesseract
-CURRENT_DIGIT = run_tesseract(cnf.PATH, PICTURE_PATH, cnf.COORDINATES, cnf.THRESHOLD)
-print(CURRENT_DIGIT)
-CURRENT_DIGIT = int(CURRENT_DIGIT)
+# Run 3 times
+for x in range(3):
+    # Take a picture
+    get_picture(PICTURE_PATH)
+
+    # Run tesseract
+    CURRENT_DIGIT = int(run_tesseract(cnf.PATH, PICTURE_PATH, cnf.COORDINATES, cnf.THRESHOLD))
+    all_digits.append(CURRENT_DIGIT)
+
+# Find value
+if all_digits[0] == all_digits[1]:
+    CURRENT_DIGIT = all_digits[0]
+
+elif all_digits[1] == all_digits[2]:
+    CURRENT_DIGIT = all_digits[1]
+
+else:
+    CURRENT_DIGIT = all_digits[2]
 
 # Update values
 CURRENT_READING = int(update_values(cnf.MULTIPLIER, CURRENT_DIGIT, cnf.DIGITS[-1], cnf.READINGS[-1]))
