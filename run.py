@@ -33,8 +33,6 @@ if all_digits[0] == all_digits[1]:
 elif all_digits[1] == all_digits[2]:
     CURRENT_DIGIT = all_digits[1]
 
-else:
-    CURRENT_DIGIT = all_digits[2]
 
 # Update values
 CURRENT_READING = int(update_values(cnf.MULTIPLIER, CURRENT_DIGIT, cnf.DIGITS[-1], cnf.READINGS[-1]))
