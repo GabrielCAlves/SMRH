@@ -30,20 +30,22 @@
 </ul>
 </div>
 </nav>
-<div class="text-center">
-  {% block content %}{% endblock %}
+{% block content %}{% endblock %}
 
-  <p> Próxima leitura em <span id="countdowntimer">60 </span> segundos...</p>
+<br>
+<br>
 
-  <script type="text/javascript">
-      var timeleft = 60;
-      var downloadTimer = setInterval(function(){
-      timeleft--;
-      document.getElementById("countdowntimer").textContent = timeleft;
-      if(timeleft <= 0)
-          clearInterval(downloadTimer);
-      },1000);
-  </script>
-</div>
+<p> Próxima leitura em <span id="countdowntimer">60 </span> segundos...</p>
+
+<script type="text/javascript">
+    var timeleft = 60;
+    var downloadTimer = setInterval(function(){
+    timeleft--;
+    document.getElementById("countdowntimer").textContent = timeleft;
+    if(timeleft <= 0)
+        clearInterval(downloadTimer);
+    },1000);
+</script>
+
 </body>
 </html>
