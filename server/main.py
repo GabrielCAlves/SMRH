@@ -44,7 +44,7 @@ def graph():
     times = times[-10:]
     readings = readings[-10:]
 
-    graph.x_labels = [time(int(times[x][0:2]), int(times[x][3:5])) for x in range(10)]
+    graph.x_labels = [time(int(times[0][0:2]), int(times[0][3:5]))]
 
     # Show last 10 readings/times
     graph.add('Consumo', [(time(int(times[x][0:2]), int(times[x][3:5])), readings[x]) for x in range(10)])
