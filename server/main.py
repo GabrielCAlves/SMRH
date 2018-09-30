@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for
-from pygal.style import Style
+from pygal.style import BlueStyle
 import pickle
 import pygal
 import os
@@ -37,7 +37,7 @@ def graph():
     with open(filename2, 'rb') as temp_file:
         readings = pickle.load(temp_file)
 
-    my_style = Style(
+    my_style = BlueStyle(
         background='transparent',
         plot_background='transparent',
         font_family='sans-serif',
