@@ -44,7 +44,7 @@ def graph():
         title_font_size=24,
         label_font_size=14,
         major_label_font_size=14,
-        colors='#00a5dd',
+        colors=('#00a5dd'),
         opacity='.1',
         opacity_hover='.1'
     )
