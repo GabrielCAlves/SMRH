@@ -38,14 +38,14 @@ def graph():
     with open(filename2, 'rb') as temp_file:
         readings = pickle.load(temp_file)
 
-    graph = pygal.XY(x_title='Horário Registrado', y_title='Consumo Total (litros)', style=BlueStyle, x_label_rotation=10)
+    graph = pygal.TimeLine(x_title='Horário Registrado', y_title='Consumo Total (litros)', style=BlueStyle, x_label_rotation=10)
     graph.title = 'SMRH - Consumo Total de Água'
 
     times = times[-10:]
     readings = readings[-10:]
 
     # Show last 10 readings/times
-    graph.add('Consumo', [(time(times[x]), readings[x]) for x in range(10)])
+    graph.add('Consumo', [(time(times[x][0:2]), readings[x]) for x in range(10)])
 
     graph_data = graph.render_data_uri()
     return render_template('graph.html', graph_data=graph_data)
