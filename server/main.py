@@ -40,7 +40,7 @@ def graph():
     my_style = DefaultStyle(
         background='transparent',
         font_family='sans-serif',
-        title_font_size=24,
+        title_font_size=20,
         label_font_size=14,
         value_font_size=14,
         value_label_font_size=14,
@@ -55,8 +55,8 @@ def graph():
     graph.y_title = 'Consumo Total em Litros'
     graph.dots_size = 4
     graph.tooltip_border_radius = 10
-    graph.height = 450
-    graph.width = 800
+    graph.height = 400
+    graph.width = 500
 
     times = times[-10:]
     readings = readings[-10:]
