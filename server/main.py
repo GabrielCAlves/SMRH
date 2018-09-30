@@ -43,7 +43,10 @@ def graph():
         font_family='sans-serif',
         title_font_size=24,
         label_font_size=14,
-        major_label_font_size=14
+        major_label_font_size=14,
+        colors=('#00a5dd'),
+        opacity=1,
+        opacity_hover=1
     )
 
     graph = pygal.Line(style=my_style, show_y_guides=False, show_legend=False, stroke_style={'width':3})
