@@ -2,11 +2,17 @@
 {% set active_page = "início" %}
 
 {% block content %}
-<p>Horário Inicial: {{FIRST_TIME}} | Último Horário: {{LAST_TIME}}</p>
-<p>Leitura Inicial (litros): {{FIRST_READING}} | Última Leitura (litros): {{LAST_READING}}</p>
-<p> Gasto total (litros): {{DIF_READING}}
-<p>
-  <img src="/static/images/last_picture.png" style="max-height:300px">
-</p>
-<p>Último algarismo lido: {{LAST_DIGIT}}</p>
+<div class="row">
+  <div class="col-sm-6">
+      <p>Horário Inicial: {{FIRST_TIME}} | Último Horário: {{LAST_TIME}}</p>
+      <p>Leitura Inicial (litros): {{FIRST_READING}} | Última Leitura (litros): {{LAST_READING}}</p>
+      <p> Gasto total (litros): {{DIF_READING}}</p>
+      <p>Último algarismo lido: {{LAST_DIGIT}}</p>
+  </div>
+  <div class="col-sm-6">
+    <p>
+      <img src="/static/images/last_picture.png" style="max-height:300px">
+    </p>
+</div>
+</div>
 {% endblock %}
