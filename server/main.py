@@ -37,13 +37,14 @@ def graph():
     with open(filename2, 'rb') as temp_file:
         readings = pickle.load(temp_file)
 
-    graph = pygal.Bar(x_title='Horário Registrado', y_title='Consumo Total (litros)', style=BlueStyle, x_label_rotation=10)
+    graph = pygal.XY(x_title='Horário Registrado', y_title='Consumo Total (litros)', style=BlueStyle, x_label_rotation=10)
     graph.title = 'SMRH - Consumo Total de Água'
 
+    times = times[-10:]
+    readings = readings[-10:]
+
     # Show last 10 readings/times
-    graph.x_labels = times[-10:]
-    graph.y_labels = readings[-10:]
-    graph.add('Consumo', readings[-10:])
+    graph.add('Consumo', [readings[x] for x in range(10)])
 
     graph_data = graph.render_data_uri()
     return render_template('graph.html', graph_data=graph_data)
