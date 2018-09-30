@@ -1,6 +1,5 @@
 from flask import Flask, render_template, url_for
-from pygal.style import BlueStyle
-from datetime import time
+from pygal.style import Style
 import pickle
 import pygal
 import os
@@ -38,9 +37,16 @@ def graph():
     with open(filename2, 'rb') as temp_file:
         readings = pickle.load(temp_file)
 
-    graph = pygal.Line(y_title='Consumo Total (litros)', style=BlueStyle, x_label_rotation=10)
+    my_style = Style(
+        background='transparent',
+        plot_background='transparent',
+        font_family='serif'
+    )
+
+    graph = pygal.Line(style=my_style, x_label_rotation=10)
     graph.title = 'SMRH - Consumo Total de Água'
     graph.x_title = 'Horário Registrado'
+    graph.y_title = 'Consumo Total em Litros'
 
     times = times[-10:]
     readings = readings[-10:]
