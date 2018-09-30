@@ -1,10 +1,17 @@
 import cnf
+from lib.files import write_it
 from see_variables import see
 
-see()
+cnf.TIMES = times
+cnf.READINGS = readings
+cnf.DIGITS = digits
 
-del cnf.TIMES[-1]
-del cnf.READINGS[-1]
-del cnf.DIGITS[-1]
+del times[-1]
+del readings[-1]
+del digits[-1]
+
+write_it(cnf.TIMES_PATH, times)
+write_it(cnf.READINGS_PATH, readings)
+write_it(cnf.DIGITS_PATH, digits)
 
 see()
