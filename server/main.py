@@ -46,7 +46,7 @@ def graph():
         major_label_font_size=14
     )
 
-    graph = pygal.Line(style=my_style, show_y_guides=False, show_legend=False, stroke_style={width:3})
+    graph = pygal.Line(style=my_style, show_y_guides=False, show_legend=False, stroke_style={'width':3})
     graph.title = 'SMRH - Consumo Total de Água'
     graph.x_title = 'Horário Registrado'
     graph.y_title = 'Consumo Total em Litros'
