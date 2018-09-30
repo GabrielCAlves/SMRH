@@ -18,18 +18,10 @@ PICTURE_PATH = cnf.PATH + '/server/static/images/last_picture.png'
 # Take a picture
 get_picture(PICTURE_PATH)
 
-<<<<<<< HEAD
 # Run tesseract
 CURRENT_DIGIT = run_tesseract(cnf.PATH, PICTURE_PATH, cnf.COORDINATES, cnf.THRESHOLD)
 print(CURRENT_DIGIT)
 CURRENT_DIGIT = int(CURRENT_DIGIT)
-=======
-# Take a picture
-get_picture(PICTURE_PATH)
-
-# Run tesseract
-CURRENT_DIGIT = int(run_tesseract(cnf.PATH, PICTURE_PATH, cnf.COORDINATES, cnf.THRESHOLD))
->>>>>>> 9f454c2493fbbd3aa5135bc02319075763f72d40
 
 # Update values
 CURRENT_READING = int(update_values(cnf.MULTIPLIER, CURRENT_DIGIT, cnf.DIGITS[-1], cnf.READINGS[-1]))
