@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for
 from pygal.style import BlueStyle
+from datetime import time
 import pickle
 import pygal
 import os
@@ -44,7 +45,7 @@ def graph():
     readings = readings[-10:]
 
     # Show last 10 readings/times
-    graph.add('Consumo', [(readings[x], times[x]) for x in range(10)])
+    graph.add('Consumo', [(time(times[x]), readings[x]) for x in range(10)])
 
     graph_data = graph.render_data_uri()
     return render_template('graph.html', graph_data=graph_data)
