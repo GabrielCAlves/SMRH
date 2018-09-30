@@ -38,7 +38,6 @@ def graph():
         readings = pickle.load(temp_file)
 
     my_style = DefaultStyle(
-        background='transparent',
         plot_background='transparent',
         font_family='sans-serif',
         title_font_size=24,
