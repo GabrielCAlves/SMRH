@@ -40,7 +40,7 @@ def graph():
     my_style = Style(
         background='transparent',
         plot_background='transparent',
-        font_family='serif'
+        font_family='sans-serif'
     )
 
     graph = pygal.Line(style=my_style, x_label_rotation=10)
