@@ -2,5 +2,5 @@
 {% set active_page = "gráfico" %}
 
 {% block content %}
-<embed type="image/svg+xml" src={{graph_data|safe}} style="max-height:500px" />
+<embed type="image/svg+xml" src={{graph_data|safe}} style="max-width: 100%; max-height:500px" />
 {% endblock %}
