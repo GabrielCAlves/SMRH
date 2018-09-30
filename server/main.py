@@ -45,6 +45,7 @@ def graph():
     readings = readings[-10:]
 
     # Show last 10 readings/times
+    graph.x_labels(times)
     graph.add('Consumo', [(time(int(times[x][0:2]), int(times[x][3:5])), readings[x]) for x in range(10)])
 
     graph_data = graph.render_data_uri()
