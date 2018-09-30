@@ -17,4 +17,4 @@ def run_tesseract(PATH, PICTURE_PATH, COORDINATES, THRESHOLD_VALUE):
     final_image.save(PATH + '/server/static/images/result.png')
 
     # Return OCR'd value as an integer
-    return int(pytesseract.image_to_string(final_image, config='-psm 10 nobatch digits'))
+    return pytesseract.image_to_string(final_image, config='-psm 10 nobatch digits')
