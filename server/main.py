@@ -44,9 +44,7 @@ def graph():
         title_font_size=24,
         label_font_size=14,
         major_label_font_size=14,
-        colors=['#00A5DD'],
-        opacity='.5',
-        opacity_hover='.5'
+        colors=['#00A5DD']
     )
 
     graph = pygal.Line(style=my_style, show_y_guides=False, show_legend=False, stroke_style={'width':3})
