@@ -50,6 +50,7 @@ def graph():
     graph.title = 'SMRH - Consumo Total de Água'
     graph.x_title = 'Horário Registrado'
     graph.y_title = 'Consumo Total em Litros'
+    graph.dots_size = 3
 
     times = times[-10:]
     readings = readings[-10:]
