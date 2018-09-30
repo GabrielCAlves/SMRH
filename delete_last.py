@@ -2,9 +2,9 @@ import cnf
 from lib.files import write_it
 from see_variables import see
 
-cnf.TIMES = times
-cnf.READINGS = readings
-cnf.DIGITS = digits
+times = cnf.TIMES
+readings = cnf.READINGS
+digits = cnf.DIGITS
 
 del times[-1]
 del readings[-1]
