@@ -101,7 +101,8 @@ def graph1():
     readings = readings[-10:]
 
     for x in range(10):
-        readings[x] = readings[x] - first_reading
+        atual = readings[x]
+        readings[x] = atual - first_reading
 
     # Show last 10 readings/times
     graph.x_labels = times
