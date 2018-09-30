@@ -40,10 +40,11 @@ def graph():
     my_style = Style(
         background='transparent',
         plot_background='transparent',
-        font_family='sans-serif'
+        font_family='sans-serif',
+        label_font_family='sans=serif'
     )
 
-    graph = pygal.Line(style=my_style, x_label_rotation=10)
+    graph = pygal.Line(style=my_style)
     graph.title = 'SMRH - Consumo Total de Água'
     graph.x_title = 'Horário Registrado'
     graph.y_title = 'Consumo Total em Litros'
