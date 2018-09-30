@@ -41,8 +41,8 @@ def graph():
         background='transparent',
         plot_background='transparent',
         font_family='sans-serif',
-        title_font_size='20px',
-        label_font_size='16px'
+        title_font_size='20',
+        label_font_size='16'
     )
 
     graph = pygal.Line(style=my_style)
