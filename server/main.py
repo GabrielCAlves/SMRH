@@ -50,6 +50,44 @@ def graph():
     )
 
     graph = pygal.Line(style=my_style, print_values=True, show_y_guides=False, show_legend=False, stroke_style={'width':3})
+    graph.title = 'SMRH - Medições Realizadas'
+    graph.x_title = 'Horário Registrado'
+    graph.y_title = 'Valor Registrado em Litros'
+    graph.dots_size = 4
+    graph.tooltip_border_radius = 10
+    graph.width = 1200
+
+    times = times[-10:]
+    readings = readings[-10:]
+
+    # Show last 10 readings/times
+    graph.x_labels = times
+    graph.add('Consumo', readings)
+
+    graph_data = graph.render_data_uri()
+    return render_template('graph.html', graph_data=graph_data)
+
+@smrh.route('/graph1')
+def graph1():
+    with open(filename1, 'rb') as temp_file:
+        times = pickle.load(temp_file)
+
+    with open(filename2, 'rb') as temp_file:
+        readings = pickle.load(temp_file)
+
+    my_style = DefaultStyle(
+        background='transparent',
+        font_family='sans-serif',
+        title_font_size=20,
+        label_font_size=14,
+        value_font_size=14,
+        value_label_font_size=14,
+        major_label_font_size=14,
+        tooltip_font_size=16,
+        colors=['#00A5DD'],
+    )
+
+    graph = pygal.Line(style=my_style, print_values=True, show_y_guides=False, show_legend=False, stroke_style={'width':3})
     graph.title = 'SMRH - Consumo Total de Água'
     graph.x_title = 'Horário Registrado'
     graph.y_title = 'Consumo Total em Litros'
@@ -57,8 +95,13 @@ def graph():
     graph.tooltip_border_radius = 10
     graph.width = 1200
 
+    first_reading = readings[0]
+
     times = times[-10:]
     readings = readings[-10:]
+
+    for x in range(10):
+        readings[x] = readings[x] - first_reading
 
     # Show last 10 readings/times
     graph.x_labels = times
