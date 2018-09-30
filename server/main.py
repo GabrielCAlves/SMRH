@@ -55,7 +55,7 @@ def graph():
     graph.y_title = 'Consumo Total em Litros'
     graph.dots_size = 4
     graph.tooltip_border_radius = 10
-    graph.width = 1500
+    graph.width = 1200
 
     times = times[-10:]
     readings = readings[-10:]
