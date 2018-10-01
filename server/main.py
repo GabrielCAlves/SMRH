@@ -140,8 +140,8 @@ def graph3():
     graph.width = 1200
     graph.x_label_rotation = 15
 
-    last = readings[-55]
-    last_time = times[-55]
+    last = readings[-54]
+    last_time = times[-54]
 
     times1 = times[-50:]
     times = times[-10:]
@@ -159,7 +159,7 @@ def graph3():
         else:
             atual = readings1[y]
             readings[x] = atual - last
-            y = y + 4
+            y = y + 5
 
     y = 0
     for x in range(0, 10):
@@ -171,7 +171,7 @@ def graph3():
         else:
             atual = times1[y]
             times[x] = last_time + ' - ' + atual
-            y = y + 4
+            y = y + 5
 
     # Show last 10 readings/times
     graph.x_labels = times
