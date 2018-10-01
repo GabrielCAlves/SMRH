@@ -27,7 +27,7 @@ except:
     CURRENT_DIGIT = cnf.DIGITS[-1]
 
 # Update values
-CURRENT_READING = int(update_values(cnf.MULTIPLIER, CURRENT_DIGIT, cnf.DIGITS[-1], cnf.READINGS[-1]))
+CURRENT_READING = int(update_values(cnf.PATH, cnf.MULTIPLIER, CURRENT_DIGIT, cnf.DIGITS[-1], cnf.READINGS[-1]))
 
 # Append lists
 cnf.TIMES.append(CURRENT_TIME)
