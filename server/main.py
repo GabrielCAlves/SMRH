@@ -168,7 +168,7 @@ def graph3():
             times[x] = last_time + ' - ' + atual
 
     # Show last 10 readings/times
-    graph.x_labels = times
+    graph.x_labels = [times[x] for x in range(0, 50, 5)]
     graph.add('Consumo', readings)
 
     graph_data = graph.render_data_uri()
