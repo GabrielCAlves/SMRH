@@ -13,6 +13,35 @@ filename1 = PATH + '/static/data/times.p'
 filename2 = PATH + '/static/data/readings.p'
 filename3 = PATH + '/static/data/digits.p'
 
+@smrh.route('/delete')
+def delete():
+    with open(filename1, 'rb') as temp_file:
+        times = pickle.load(temp_file)
+
+    with open(filename2, 'rb') as temp_file:
+        readings = pickle.load(temp_file)
+
+    with open(filename3, 'rb') as temp_file:
+        digits = pickle.load(temp_file)
+
+    del times[-1]
+    del readings[-1]
+    del digits[-1]
+
+    with open(filename, 'wb') as temp_file:
+        pickle.dump(times, temp_file)
+        temp_file.close()
+
+    with open(filename, 'wb') as temp_file:
+        pickle.dump(readings, temp_file)
+        temp_file.close()
+
+    with open(filename, 'wb') as temp_file:
+        pickle.dump(digits, temp_file)
+        temp_file.close()
+
+    return render_template('delete.html')
+
 @smrh.route('/')
 def index():
     with open(filename1, 'rb') as temp_file:
