@@ -128,11 +128,10 @@ def graph3():
         value_label_font_size=14,
         major_label_font_size=14,
         tooltip_font_size=16,
-        value_colors=['blue'],
         colors=['#00A5DD'],
     )
 
-    graph = pygal.Bar(style=my_style, print_zeroes=True, print_values=True, show_y_guides=False, show_legend=False, stroke_style={'width':3})
+    graph = pygal.Bar(style=my_style, print_values=True, show_y_guides=False, show_legend=False, stroke_style={'width':3})
     graph.title = 'SMRH - Consumo de Água no Período'
     graph.x_title = 'Horário Registrado'
     graph.y_title = 'Consumo no Período em Litros'
