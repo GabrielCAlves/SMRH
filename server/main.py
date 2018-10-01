@@ -142,12 +142,13 @@ def graph3():
     last = readings[-11]
 
     times = times[-10:]
+    readings1 = readings[-10:]
     readings = readings[-10:]
 
     for x in range(10):
         if x != 0:
-            atual = readings[x]
-            ult = readings[x-1]
+            atual = readings1[x]
+            ult = readings1[x-1]
             readings[x] = atual - ult
 
     # Show last 10 readings/times
