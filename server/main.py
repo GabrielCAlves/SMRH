@@ -153,7 +153,7 @@ def graph3():
     for x in range(0, 10):
         if x != 0:
             atual = readings1[y]
-            ult = readings1[y-1]
+            ult = readings1[y-5]
             readings[x] = atual - ult
             y = y + 5
         else:
@@ -165,7 +165,7 @@ def graph3():
     for x in range(0, 10):
         if x != 0:
             atual = times1[y]
-            ult = times1[y-1]
+            ult = times1[y-5]
             times[x] = ult + ' - ' + atual
             y = y + 5
         else:
