@@ -131,7 +131,7 @@ def graph3():
         colors=['#00A5DD'],
     )
 
-    graph = pygal.Line(style=my_style, print_values=True, show_y_guides=False, show_legend=False, stroke_style={'width':3})
+    graph = pygal.Bar(style=my_style, print_values=True, show_y_guides=False, show_legend=False, stroke_style={'width':3})
     graph.title = 'SMRH - Consumo Total de Água'
     graph.x_title = 'Horário Registrado'
     graph.y_title = 'Consumo Total em Litros'
@@ -150,6 +150,9 @@ def graph3():
             atual = readings1[x]
             ult = readings1[x-1]
             readings[x] = atual - ult
+        else:
+            atual = readings1[x]
+            readings[x] = atual - last
 
     # Show last 10 readings/times
     graph.x_labels = times
