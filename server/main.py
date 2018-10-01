@@ -161,6 +161,10 @@ def graph3():
         colors=['#00A5DD'],
     )
 
+    Config = pygal.Config
+    Config.js = ['/static/svg.jquery.js',
+                 '/static/pygal-tooltips.js']
+
     graph = pygal.Bar(style=my_style, print_values=True, show_y_guides=False, show_legend=False, stroke_style={'width':3})
     graph.title = 'SMRH - Consumo de Água no Período'
     graph.x_title = 'Horário Registrado'
