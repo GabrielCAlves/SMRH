@@ -11,6 +11,13 @@
 </head>
 <body>
 
+  <style type="text/css">
+    @font-face {
+    font-family: arial;
+    src: "{{url_for('static', filename='arialrounded.ttf') }}";
+   }
+ </style>
+
   {% set navigation_bar = [
     ('/', 'início', 'Início'),
     ('/2graph', 'gráfico 2', 'Gráfico de Consumo Total'),
