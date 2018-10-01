@@ -86,8 +86,9 @@ def graph():
     graph.tooltip_border_radius = 10
     graph.width = 1100
 
-    times = times[-10:]
-    readings = readings[-10:]
+    if(len(readings) > 9):
+        times = times[-10:]
+        readings = readings[-10:]
 
     # Show last 10 readings/times
     graph.x_labels = times
@@ -166,7 +167,7 @@ def graph3():
     Config.js = ['/static/svg.jquery.js',
                  '/static/pygal-tooltips.js']
 
-    graph = pygal.Bar(style=my_style, print_values=True, show_y_guides=False, show_legend=False, stroke_style={'width':3})
+    graph = pygal.Bar(Config, style=my_style, print_values=True, show_y_guides=False, show_legend=False, stroke_style={'width':3})
     graph.title = 'SMRH - Consumo de Água no Período'
     graph.x_title = 'Horário Registrado'
     graph.y_title = 'Consumo no Período em Litros'
