@@ -149,27 +149,29 @@ def graph3():
     readings1 = readings[-50:]
     readings = readings[-50:]
 
-    for x in range(0, 50):
+    y = 0
+    for x in range(0, 10):
         if x != 0:
-            atual = readings1[x]
-            ult = readings1[x-5]
+            atual = readings1[y]
+            ult = readings1[y-1]
             readings[x] = atual - ult
-            x = x + 4
+            y = y + 5
         else:
-            atual = readings1[x]
+            atual = readings1[y]
             readings[x] = atual - last
-            x = x + 4
+            y = y + 5
 
-    for x in range(0, 50):
+    y = 0
+    for x in range(0, 10):
         if x != 0:
-            atual = times1[x]
-            ult = times1[x-5]
+            atual = times1[y]
+            ult = times1[y-1]
             times[x] = ult + ' - ' + atual
-            x = x + 4
+            y = y + 5
         else:
-            atual = times1[x]
+            atual = times1[y]
             times[x] = last_time + ' - ' + atual
-            x = x + 4
+            y = y + 5
 
     # Show last 10 readings/times
     graph.x_labels = times
