@@ -140,8 +140,8 @@ def graph3():
     graph.width = 1200
     graph.x_label_rotation = 15
 
-    last = readings[-51]
-    last_time = times[-51]
+    last = readings[-55]
+    last_time = times[-55]
 
     times1 = times[-50:]
     times = times[-50:]
