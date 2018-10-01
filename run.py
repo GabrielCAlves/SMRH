@@ -21,7 +21,10 @@ get_picture(PICTURE_PATH)
 # Run tesseract
 CURRENT_DIGIT = run_tesseract(cnf.PATH, PICTURE_PATH, cnf.COORDINATES, cnf.THRESHOLD)
 print(CURRENT_DIGIT)
-CURRENT_DIGIT = int(CURRENT_DIGIT)
+try:
+    CURRENT_DIGIT = int(CURRENT_DIGIT)
+except:
+    CURRENT_DIGIT = cnf.DIGITS[-1]
 
 # Update values
 CURRENT_READING = int(update_values(cnf.MULTIPLIER, CURRENT_DIGIT, cnf.DIGITS[-1], cnf.READINGS[-1]))
