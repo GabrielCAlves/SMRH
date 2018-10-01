@@ -145,12 +145,13 @@ def graph3():
     readings = readings[-10:]
 
     for x in range(10):
-        if x != 0:
-            atual = readings[x]
-            readings[x] = atual - readings[x-1]
-        else:
+        if x == 0:
             atual = readings[x]
             readings[x] = atual - last
+        else:
+            atual = readings[x]
+            ult = readings[x-1]
+            readings[x] = atual - ult
 
     # Show last 10 readings/times
     graph.x_labels = times
