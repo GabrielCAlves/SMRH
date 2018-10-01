@@ -21,6 +21,11 @@ get_picture(PICTURE_PATH)
 # Run tesseract
 CURRENT_DIGIT = run_tesseract(cnf.PATH, PICTURE_PATH, cnf.COORDINATES, cnf.THRESHOLD)
 print(CURRENT_DIGIT)
+
+# if time's the same get error
+if CURRENT_TIME == cnf.TIMES[-1]:
+    CURRENT_DIGIT = 'ERROR'
+
 CURRENT_DIGIT = int(CURRENT_DIGIT)
 
 # Update values
