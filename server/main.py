@@ -139,12 +139,18 @@ def graph3():
     graph.tooltip_border_radius = 10
     graph.width = 1200
 
+    last = readings[-11]
+
     times = times[-10:]
     readings = readings[-10:]
 
-    for x in range(11):
-        atual = readings[x+1]
-        readings[x+1] = atual - readings[x]
+    for x in range(10):
+        if x != 0:
+            atual = readings[x]
+            readings[x] = atual - readings[x-1]
+        else:
+            atual = readings[x]
+            readings[x] = atual - last
 
     # Show last 10 readings/times
     graph.x_labels = times
