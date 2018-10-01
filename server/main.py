@@ -55,7 +55,7 @@ def graph():
     graph.y_title = 'Valor Registrado em Litros'
     graph.dots_size = 4
     graph.tooltip_border_radius = 10
-    graph.width = 1200
+    graph.width = 1100
 
     times = times[-10:]
     readings = readings[-10:]
@@ -93,7 +93,7 @@ def graph2():
     graph.y_title = 'Consumo Total em Litros'
     graph.dots_size = 4
     graph.tooltip_border_radius = 10
-    graph.width = 1200
+    graph.width = 1100
 
     first_reading = readings[0]
 
@@ -138,7 +138,7 @@ def graph3():
     graph.y_title = 'Consumo no Período em Litros'
     graph.dots_size = 4
     graph.tooltip_border_radius = 10
-    graph.width = 1200
+    graph.width = 1100
     graph.x_label_rotation = 15
 
     last = readings[-54]
