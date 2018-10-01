@@ -13,7 +13,8 @@
 
   {% set navigation_bar = [
     ('/', 'início', 'Início'),
-    ('/2graph', 'gráfico 2', 'Gráfico de Consumo'),
+    ('/2graph', 'gráfico 2', 'Gráfico de Consumo Total'),
+    ('/3graph', 'gráfico 3', 'Gráfico de Consumo no Período'),
     ('/graph', 'gráfico', 'Gráfico de Leituras'),
 ] -%}
 
@@ -33,7 +34,7 @@
 {% endfor %}
 </ul>
 <span class="navbar-text">
-      <p class="text-right"> Próxima leitura em <span id="countdowntimer">60 </span> segundos...</p>
+      <p> Próxima leitura em <span id="countdowntimer">60 </span> segundos...</p>
     </span>
 </div>
 </nav>

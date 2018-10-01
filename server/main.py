@@ -68,7 +68,7 @@ def graph():
     return render_template('graph.html', graph_data=graph_data)
 
 @smrh.route('/2graph')
-def graph1():
+def graph2():
     with open(filename1, 'rb') as temp_file:
         times = pickle.load(temp_file)
 
@@ -110,6 +110,48 @@ def graph1():
 
     graph_data = graph.render_data_uri()
     return render_template('2graph.html', graph_data=graph_data)
+
+@smrh.route('/3graph')
+def graph3():
+    with open(filename1, 'rb') as temp_file:
+        times = pickle.load(temp_file)
+
+    with open(filename2, 'rb') as temp_file:
+        readings = pickle.load(temp_file)
+
+    my_style = DefaultStyle(
+        background='transparent',
+        font_family='sans-serif',
+        title_font_size=20,
+        label_font_size=14,
+        value_font_size=14,
+        value_label_font_size=14,
+        major_label_font_size=14,
+        tooltip_font_size=16,
+        colors=['#00A5DD'],
+    )
+
+    graph = pygal.Line(style=my_style, print_values=True, show_y_guides=False, show_legend=False, stroke_style={'width':3})
+    graph.title = 'SMRH - Consumo Total de Água'
+    graph.x_title = 'Horário Registrado'
+    graph.y_title = 'Consumo Total em Litros'
+    graph.dots_size = 4
+    graph.tooltip_border_radius = 10
+    graph.width = 1200
+
+    times = times[-10:]
+    readings = readings[-10:]
+
+    for x in range(11):
+        atual = readings[x+1]
+        readings[x+1] = atual - readings[x]
+
+    # Show last 10 readings/times
+    graph.x_labels = times
+    graph.add('Consumo', readings)
+
+    graph_data = graph.render_data_uri()
+    return render_template('3graph.html', graph_data=graph_data)
 
 if __name__ == '__main__':
     smrh.run(debug=True, host='0.0.0.0')
