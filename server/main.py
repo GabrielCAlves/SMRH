@@ -162,11 +162,12 @@ def graph3():
         value_label_font_size=14,
         major_label_font_size=14,
         tooltip_font_size=16,
+        no_data_font_size=32,
         value_colors=['white'],
         colors=['#00A5DD'],
     )
 
-    graph = pygal.Bar(style=my_style, print_values=True, show_y_guides=False, show_legend=False, stroke_style={'width':3})
+    graph = pygal.Bar(no_data_text='Não há dados suficientes', style=my_style, print_values=True, show_y_guides=False, show_legend=False, stroke_style={'width':3})
     graph.force_uri_protocol = 'http'
     graph.title = 'SMRH - Consumo de Água no Período'
     graph.x_title = 'Horário Registrado'
@@ -213,7 +214,7 @@ def graph3():
     else:
         readings = []
         times = []
-        
+
     # Show last 10 readings/times
     graph.x_labels = times
     graph.add('Consumo', readings)
