@@ -132,9 +132,9 @@ def graph3():
     )
 
     graph = pygal.Bar(style=my_style, print_values=True, show_y_guides=False, show_legend=False, stroke_style={'width':3})
-    graph.title = 'SMRH - Consumo Total de Água'
+    graph.title = 'SMRH - Consumo de Água no Período'
     graph.x_title = 'Horário Registrado'
-    graph.y_title = 'Consumo Total em Litros'
+    graph.y_title = 'Consumo no Período em Litros'
     graph.dots_size = 4
     graph.tooltip_border_radius = 10
     graph.width = 1200
