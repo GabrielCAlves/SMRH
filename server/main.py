@@ -171,6 +171,7 @@ def graph3():
                  '/static/pygal-tooltips.js']
 
     graph = pygal.Bar(Config, style=my_style, print_values=True, show_y_guides=False, show_legend=False, stroke_style={'width':3})
+    graph.force_uri_protocol = 'http'
     graph.title = 'SMRH - Consumo de Água no Período'
     graph.x_title = 'Horário Registrado'
     graph.y_title = 'Consumo no Período em Litros'
