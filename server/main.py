@@ -141,8 +141,11 @@ def graph3():
     graph.width = 1200
 
     last = readings[-11]
+    last_time = times[-11]
 
+    times1 = times[-10:]
     times = times[-10:]
+
     readings1 = readings[-10:]
     readings = readings[-10:]
 
@@ -154,6 +157,15 @@ def graph3():
         else:
             atual = readings1[x]
             readings[x] = atual - last
+
+    for x in range(10):
+        if x != 0:
+            atual = times1[x]
+            ult = times1[x-1]
+            times[x] = ult + ' - ' + atual
+        else:
+            atual = times1[x]
+            times[x] = last_time + ' - ' + atual
 
     # Show last 10 readings/times
     graph.x_labels = times
