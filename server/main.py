@@ -130,10 +130,13 @@ def graph2():
     if(len(readings) > 9):
         times = times[-10:]
         readings = readings[-10:]
-
-    for x in range(10):
-        atual = readings[x]
-        readings[x] = atual - first_reading
+        for x in range(10):
+            atual = readings[x]
+            readings[x] = atual - first_reading
+    else:
+        for x in range(len(readings)):
+            atual = readings[x]
+            readings[x] = atual - first_reading
 
     # Show last 10 readings/times
     graph.x_labels = times
