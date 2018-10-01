@@ -28,15 +28,15 @@ def delete():
     del readings[-1]
     del digits[-1]
 
-    with open(filename, 'wb') as temp_file:
+    with open(filename1, 'wb') as temp_file:
         pickle.dump(times, temp_file)
         temp_file.close()
 
-    with open(filename, 'wb') as temp_file:
+    with open(filename2, 'wb') as temp_file:
         pickle.dump(readings, temp_file)
         temp_file.close()
 
-    with open(filename, 'wb') as temp_file:
+    with open(filename3, 'wb') as temp_file:
         pickle.dump(digits, temp_file)
         temp_file.close()
 
