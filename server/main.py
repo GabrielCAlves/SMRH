@@ -177,7 +177,7 @@ def graph3():
     graph.width = 1100
     graph.x_label_rotation = 15
 
-    if(len(readings) > 24):
+    if(len(readings) > 28):
         last = readings[-29]
         last_time = times[-29]
 
