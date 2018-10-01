@@ -126,8 +126,9 @@ def graph2():
 
     first_reading = readings[0]
 
-    times = times[-10:]
-    readings = readings[-10:]
+    if(len(readings) > 9):
+        times = times[-10:]
+        readings = readings[-10:]
 
     for x in range(10):
         atual = readings[x]
@@ -174,38 +175,39 @@ def graph3():
     graph.width = 1100
     graph.x_label_rotation = 15
 
-    last = readings[-54]
-    last_time = times[-54]
+    if(len(readings) > 53):
+        last = readings[-54]
+        last_time = times[-54]
 
-    times1 = times[-50:]
-    times = times[-10:]
+        times1 = times[-50:]
+        times = times[-10:]
 
-    readings1 = readings[-50:]
-    readings = readings[-10:]
+        readings1 = readings[-50:]
+        readings = readings[-10:]
 
-    y = 0
-    for x in range(0, 10):
-        if x != 0:
-            atual = readings1[y]
-            ult = readings1[y-5]
-            readings[x] = atual - ult
-            y = y + 5
-        else:
-            atual = readings1[y]
-            readings[x] = atual - last
-            y = y + 5
+        y = 0
+        for x in range(0, 10):
+            if x != 0:
+                atual = readings1[y]
+                ult = readings1[y-5]
+                readings[x] = atual - ult
+                y = y + 5
+            else:
+                atual = readings1[y]
+                readings[x] = atual - last
+                y = y + 5
 
-    y = 0
-    for x in range(0, 10):
-        if x != 0:
-            atual = times1[y]
-            ult = times1[y-5]
-            times[x] = ult + ' - ' + atual
-            y = y + 5
-        else:
-            atual = times1[y]
-            times[x] = last_time + ' - ' + atual
-            y = y + 5
+        y = 0
+        for x in range(0, 10):
+            if x != 0:
+                atual = times1[y]
+                ult = times1[y-5]
+                times[x] = ult + ' - ' + atual
+                y = y + 5
+            else:
+                atual = times1[y]
+                times[x] = last_time + ' - ' + atual
+                y = y + 5
 
     # Show last 10 readings/times
     graph.x_labels = times
