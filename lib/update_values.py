@@ -1,10 +1,9 @@
 import shutil
 
-f1 = PATH + '/server/static/images/last_picture.png'
-f2 = PATH + '/server/static/images/source/last_picture.png'
-
 # Update values
 def update_values(PATH, MULTIPLIER, digit, last_digit, last_reading):
+    f1 = PATH + '/server/static/images/last_picture.png'
+    f2 = PATH + '/server/static/images/source/last_picture.png'
     # Test conditions
     if last_digit == digit:
         return last_reading
@@ -33,5 +32,5 @@ def update_values(PATH, MULTIPLIER, digit, last_digit, last_reading):
 
     # else:
     shutil.move(f1, f2)
-    
+
     return last_reading + (digit - last_digit) * MULTIPLIER
