@@ -124,10 +124,11 @@ def graph3():
         font_family='sans-serif',
         title_font_size=20,
         label_font_size=14,
-        value_font_size=14,
+        value_font_size=20,
         value_label_font_size=14,
         major_label_font_size=14,
         tooltip_font_size=16,
+        value_colors=['white'],
         colors=['#00A5DD'],
     )
 
