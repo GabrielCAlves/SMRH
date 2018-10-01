@@ -140,16 +140,16 @@ def graph3():
     graph.width = 1200
     graph.x_label_rotation = 15
 
-    last = readings[-11]
-    last_time = times[-11]
+    last = readings[-51]
+    last_time = times[-51]
 
-    times1 = times[-10:]
-    times = times[-10:]
+    times1 = times[-50:]
+    times = times[-50:]
 
-    readings1 = readings[-10:]
-    readings = readings[-10:]
+    readings1 = readings[-50:]
+    readings = readings[-50:]
 
-    for x in range(10):
+    for x in range(0, 50, 5):
         if x != 0:
             atual = readings1[x]
             ult = readings1[x-1]
@@ -158,7 +158,7 @@ def graph3():
             atual = readings1[x]
             readings[x] = atual - last
 
-    for x in range(10):
+    for x in range(0, 50, 5):
         if x != 0:
             atual = times1[x]
             ult = times1[x-1]
