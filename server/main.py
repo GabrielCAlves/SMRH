@@ -149,27 +149,31 @@ def graph3():
     readings1 = readings[-50:]
     readings = readings[-50:]
 
-    for x in range(0, 50, 5):
+    for x in range(0, 50):
         if x != 0:
             atual = readings1[x]
-            ult = readings1[x-1]
+            ult = readings1[x-5]
             readings[x] = atual - ult
+            x = x + 4
         else:
             atual = readings1[x]
             readings[x] = atual - last
+            x = x + 4
 
-    for x in range(0, 50, 5):
+    for x in range(0, 50):
         if x != 0:
             atual = times1[x]
-            ult = times1[x-1]
+            ult = times1[x-5]
             times[x] = ult + ' - ' + atual
+            x = x + 4
         else:
             atual = times1[x]
             times[x] = last_time + ' - ' + atual
+            x = x + 4
 
     # Show last 10 readings/times
-    graph.x_labels = [times[x] for x in range(0, 50, 5)]
-    graph.add('Consumo', [readings[x] for x in range(0, 50, 5)])
+    graph.x_labels = times
+    graph.add('Consumo', readings)
 
     graph_data = graph.render_data_uri()
     return render_template('3graph.html', graph_data=graph_data)
