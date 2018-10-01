@@ -29,7 +29,7 @@ def index():
 
     return render_template('index.html', FIRST_TIME=times[0], LAST_TIME=times[-1], FIRST_READING=readings[0],LAST_READING=readings[-1], DIF_READING=delta_reading, LAST_DIGIT=last_digit)
 
-@smrh.route('/2graph')
+@smrh.route('/graph')
 def graph():
     with open(filename1, 'rb') as temp_file:
         times = pickle.load(temp_file)
@@ -67,7 +67,7 @@ def graph():
     graph_data = graph.render_data_uri()
     return render_template('graph.html', graph_data=graph_data)
 
-@smrh.route('/graph1')
+@smrh.route('/2graph')
 def graph1():
     with open(filename1, 'rb') as temp_file:
         times = pickle.load(temp_file)
@@ -109,7 +109,7 @@ def graph1():
     graph.add('Consumo', readings)
 
     graph_data = graph.render_data_uri()
-    return render_template('graph.html', graph_data=graph_data)
+    return render_template('2graph.html', graph_data=graph_data)
 
 if __name__ == '__main__':
     smrh.run(debug=True, host='0.0.0.0')
