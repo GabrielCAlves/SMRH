@@ -26,17 +26,20 @@
         <img src="/static/images/source/smrh.png" style="height:30px; margin-top:-5px">
       </a>
     </div>
-<ul id="navigation" class="navbar-nav">
+<ul id="navigation" class="nav navbar-nav">
     {% for href, id, caption in navigation_bar %}
     <li{% if id == active_page %} class="active"{% endif
     %}><a href="{{ href|e }}">{{ caption|e }}</a>
     </li>
 {% endfor %}
 </ul>
-<ul class="navbar-nav ml-auto">
-<span class="navbar-text">
+<ul class="nav navbar-nav ml-auto">
+  <li>
+    <span class="navbar-text">
       <p> Próxima leitura em <span id="countdowntimer">60 </span> segundos...</p>
     </span>
+  </li>
+  </ul>
 </div>
 </nav>
 

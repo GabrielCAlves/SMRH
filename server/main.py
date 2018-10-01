@@ -139,7 +139,7 @@ def graph3():
     graph.dots_size = 4
     graph.tooltip_border_radius = 10
     graph.width = 1200
-    graph.x_label_rotation = 20
+    graph.x_label_rotation = 15
 
     last = readings[-11]
     last_time = times[-11]
