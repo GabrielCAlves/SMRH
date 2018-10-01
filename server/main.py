@@ -144,10 +144,10 @@ def graph3():
     last_time = times[-55]
 
     times1 = times[-50:]
-    times = times[-50:]
+    times = times[-10:]
 
     readings1 = readings[-50:]
-    readings = readings[-50:]
+    readings = readings[-10:]
 
     y = 0
     for x in range(0, 10):
