@@ -210,6 +210,10 @@ def graph3():
                 times[x] = last_time + ' - ' + atual
                 y = y + 5
 
+    else:
+        readings = []
+        times = []
+        
     # Show last 10 readings/times
     graph.x_labels = times
     graph.add('Consumo', readings)
