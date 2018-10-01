@@ -29,7 +29,7 @@ def index():
 
     return render_template('index.html', FIRST_TIME=times[0], LAST_TIME=times[-1], FIRST_READING=readings[0],LAST_READING=readings[-1], DIF_READING=delta_reading, LAST_DIGIT=last_digit)
 
-@smrh.route('/graph')
+@smrh.route('/2graph')
 def graph():
     with open(filename1, 'rb') as temp_file:
         times = pickle.load(temp_file)
