@@ -169,7 +169,7 @@ def graph3():
 
     # Show last 10 readings/times
     graph.x_labels = [times[x] for x in range(0, 50, 5)]
-    graph.add('Consumo', readings)
+    graph.add('Consumo', [readings[x] for x in range(0, 50, 5)])
 
     graph_data = graph.render_data_uri()
     return render_template('3graph.html', graph_data=graph_data)
