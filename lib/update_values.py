@@ -6,6 +6,9 @@ def update_values(PATH, MULTIPLIER, digit, last_digit, last_reading):
     f2 = PATH + '/server/static/images/source/last_picture.png'
     # Test conditions
     if last_digit == digit:
+
+        shutil.move(f1, f2)
+
         return last_reading
 
     if last_digit == 9:
@@ -31,6 +34,7 @@ def update_values(PATH, MULTIPLIER, digit, last_digit, last_reading):
         return 'ERROR'
 
     # else:
+    
     shutil.move(f1, f2)
 
     return last_reading + (digit - last_digit) * MULTIPLIER
