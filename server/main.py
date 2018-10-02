@@ -153,6 +153,8 @@ def graph3():
     with open(filename2, 'rb') as temp_file:
         readings = pickle.load(temp_file)
 
+    response.files.append(URL('default', 'static/js/pygal-tooltips.min.js'))
+
     my_style = DefaultStyle(
         background='transparent',
         font_family='sans-serif',
