@@ -24,9 +24,9 @@ def delete():
     with open(filename3, 'rb') as temp_file:
         digits = pickle.load(temp_file)
 
-    times[-1] = times[-2]
-    readings[-1] = readings[-2]
-    digits[-1] = digits[-2]
+    del times[-1]
+    del readings[-1]
+    del digits[-1]
 
     with open(filename1, 'wb') as temp_file:
         pickle.dump(times, temp_file)

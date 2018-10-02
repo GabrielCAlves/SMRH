@@ -28,7 +28,7 @@ def update_values(PATH, MULTIPLIER, digit, last_digit, last_reading):
             return last_reading + (digit * MULTIPLIER) + 2 * MULTIPLIER
 
     if last_digit > digit:
-        return last_reading
+        return 'ERROR'
 
     # else:
     shutil.move(f1, f2)
