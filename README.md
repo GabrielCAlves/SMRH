@@ -29,7 +29,7 @@ TO-DO
 
 ## Autores
 
-* **Gabriel Correa** - *Desenvolvimento Python* - [GabrielCAlves](https://github.com/GabrielCAlves)
+* **Gabriel Correa** - *Desenvolvimento Python* - [cowrrea](https://github.com/cowrrea)
 * **Eduardo Quirino** - *Desenvolvimento Web* - [qrno](https://github.com/qrno)
 
 ## Licença
